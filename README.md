@@ -7,23 +7,29 @@ installare pacchetti per arrivare ad avere della grafica pittosto che partire da
 
 Partendo dalla versione Desktop e togliendo i pacchetti purtroppo non siamo mai riuscito ad avere un sistema che fosse capace di bootare.
 
-# Cose fatte
+Il file 5HDInstalledPackets rappresenta una lista di tutti i pacchetti che sono stati installati o rimosso dopo l'installazione 
+di ubuntu server.
 
-## Problema di LC_ALL e simili
+## Cose fatte
+
+### Problema di LC_ALL e simili
 Qaundo ci colleghiamo ad un pc in generale tramite SSH non tutte le variabili di ambiente vengono
 inizilaizzate correttamente.
 
 In particolare perl si lamenta della mancata definizione di LC_ALL. La soluzione in questo [link](http://ubuntuforums.org/showthread.php?t=2268614)
 
-## awesome
-awesome viene avviato da lightdm, che a sua volta e' lanciato all'avvio con auto login ale
+### awesome
+Tutti i file di modifica di awesome si trovano dentro la cartella awesome di questo repo. Per farli funzionare basta 
+metterli dentro la cartella .config della 5hd
+
+awesome viene avviato da lightdm, che a sua volta &eacute; lanciato all'avvio con auto login ale
 quindi awesome lanciato da user ale cerca in   ~/.config/awesome/rc.lua il file di configurazione; in assenza cade nel default.
 
-### Configurazione
+#### Configurazione
 Copio da /etc/xdg/awesome/rc.lua a ~/.config/awesome/rc.lua. Il file ~/.config/awesome/rc.lua quindi &eacute; stato modificato
 in modo da selezionare il tema da ~/.config/awesome/themes/default.
 
-### Impostazione del tema
+#### Impostazione del tema
 I temi sono stati copiati da /usr/share/awesome/themes/default a ~/.config/awesome/themes/default
 
 Ho quindi modificati tutti i path in modo da puntare ai posti giusti.
