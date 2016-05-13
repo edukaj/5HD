@@ -10,6 +10,11 @@ Partendo dalla versione Desktop e togliendo i pacchetti purtroppo non siamo mai 
 Il file 5HDInstalledPackets rappresenta una lista di tutti i pacchetti che sono stati installati o rimosso dopo l'installazione 
 di ubuntu server.
 
+## Nomenclatura della rete
+In [questo link](http://askubuntu.com/questions/689070/network-interface-name-changes-after-update-to-15-10-udev-changes) c'&eacute;
+una spiegazione sul perch&eacute; del cambio di nomenclatura della rete: eth0 &eacute; stato deprecato in favore
+di un metodo nuovo che potrebbe risolvere i nostri problemi. 
+
 ## Cose fatte
 
 ### Problema di LC_ALL e simili
