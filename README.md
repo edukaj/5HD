@@ -27,6 +27,7 @@ In particolare perl si lamenta della mancata definizione di LC_ALL. La soluzione
 
 ### Lightdm
 Vedere cartella etc/lightdm per le modifiche fatte
+
 Lightdm &eacute; un display manager che si occupa di lanciare X server, user sessione e greeter per il login. 
 Abbiamo modificato la configurazione in modo da fare l'autologin con utente ale 
  
