@@ -1,6 +1,5 @@
 #!/bin/bash
 #Adapt this script to your needs.
-set -x
 TEE="logger -s -t $(basename $0)" 
 DEVICES=$(find /sys/class/drm/*/status)
 
