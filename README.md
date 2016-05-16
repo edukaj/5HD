@@ -35,6 +35,8 @@ Abbiamo modificato la configurazione in modo da fare l'autologin con utente ale
 I monitor vengono impostati tramite gli script di X nella cartella di etc/X11/xorg.conf.d.
 
 In questo punto viene gestito anche il DPMS (Display Power Monitor Signal) in modo che i monitor non si spengano da soli.
+
+Inoltre viene gestito il plug and play come da https://github.com/codingtony/udev-monitor-hotplug con varianti
  
 ### awesome
 Tutti i file di modifica di awesome si trovano dentro la cartella awesome di questo repo. Per farli funzionare basta 
