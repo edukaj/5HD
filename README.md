@@ -15,7 +15,9 @@ In [questo link](http://askubuntu.com/questions/689070/network-interface-name-ch
 una spiegazione sul perch&eacute; del cambio di nomenclatura della rete: eth0 &eacute; stato deprecato in favore
 di un metodo nuovo che potrebbe risolvere i nostri problemi. 
 
-## Cose fatte
+## Patch
+
+La cartella patch contiene le modifiche fatte alla versione ubuntu standard
 
 ### Problema di LC_ALL e simili
 Qaundo ci colleghiamo ad un pc in generale tramite SSH non tutte le variabili di ambiente vengono
@@ -23,6 +25,11 @@ inizilaizzate correttamente.
 
 In particolare perl si lamenta della mancata definizione di LC_ALL. La soluzione in questo [link](http://ubuntuforums.org/showthread.php?t=2268614)
 
+### Lightdm
+Vedere cartella etc/lightdm per le modifiche fatte
+Lightdm &eacute; un display manager che si occupa di lanciare X server, user sessione e greeter per il login. 
+Abbiamo modificato la configurazione in modo da fare l'autologin con utente ale 
+ 
 ### awesome
 Tutti i file di modifica di awesome si trovano dentro la cartella awesome di questo repo. Per farli funzionare basta 
 metterli dentro la cartella .config della 5hd
