@@ -66,3 +66,14 @@ Il file ~/.config/awesome/themes/qamf/theme.lua &eacute; stato modificato in mod
 
 Il tema presenta solo tre campi: se usare il wallpaper e le immagini per il monitor sx e dx
 
+## PulseAudio
+Dopo aver installato /etc/pulse/default.pa a ~/.config/pulse/default.pa. Modifico quindi il file che ho copiato in questo modo:
+
+load-module module-alsa-sink device=plughw:0,3 sink_name=5hdl
+load-module module-alsa-sink device=plughw:0,8 sink_name=5hdr
+
+In fondo imposto come sink di default il canale sinistro
+
+set-default-sink 5hdl
+
+
