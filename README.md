@@ -31,6 +31,9 @@ Vedere cartella etc/lightdm per le modifiche fatte
 Lightdm &eacute; un display manager che si occupa di lanciare X server, user sessione e greeter per il login. 
 Abbiamo modificato la configurazione in modo da fare l'autologin con utente ale 
 
+## Configurazione intel
+In questo [link](https://wiki.archlinux.org/index.php/intel_graphics) sono presenti una miriade di informazioni utili da tenere in considerazione sulla configurazione di GPU intel
+
 ## Configurazione monitors
 Consiglio di leggere attentamente questo link su [arch linux](https://wiki.archlinux.org/index.php/multihead) le informazioni sono abbastanza generiche
 per essere valide anche con Ubuntu 16.04.
@@ -46,7 +49,9 @@ Tutti i file di modifica di awesome si trovano dentro la cartella awesome di que
 metterli dentro la cartella .config della 5hd
 
 awesome viene avviato da lightdm, che a sua volta &eacute; lanciato all'avvio con auto login ale
-quindi awesome lanciato da user ale cerca in   ~/.config/awesome/rc.lua il file di configurazione; in assenza cade nel default.
+quindi awesome lanciato da user ale cerca in   ~/.config/awesome/rc.lua il file di configurazione in assenza cade nel default.
+
+Al file di "default" sono state rimosse tutte le parti che non servivano lasciando il minimo indispensabile per poter funzionare.
 
 ### Configurazione
 Copio da /etc/xdg/awesome/rc.lua a ~/.config/awesome/rc.lua. Il file ~/.config/awesome/rc.lua quindi &eacute; stato modificato
@@ -58,4 +63,6 @@ I temi sono stati copiati da /usr/share/awesome/themes/default a ~/.config/aweso
 Ho quindi modificati tutti i path in modo da puntare ai posti giusti.
 
 Il file ~/.config/awesome/themes/qamf/theme.lua &eacute; stato modificato in modo da togliere la barra superiore, il menu che comparre quando clicco col mouse e il binding della tastiera
+
+Il tema presenta solo tre campi: se usare il wallpaper e le immagini per il monitor sx e dx
 
