@@ -3,12 +3,12 @@
 [default]
 vo=vdpau
 vc=ffh264vdpau
-va=vdpau
+#va=vdpau
 
 [qubica-sx]
 vo=vdpau
 vc=ffh264vdpau
-va=vdpau
+#va=vdpau
 #monitoraspect=16:9
 #aspect=16:9
 #cache=2048
@@ -20,7 +20,7 @@ nosound=1
 [qubica-dx]
 vo=vdpau
 vc=ffh264vdpau
-va=vdpau
+#va=vdpau
 #monitoraspect=16:9
 #aspect=16:9
 #cache=2048
@@ -32,23 +32,20 @@ nosound=1
 [qubica-sx-audio]
 vo=vdpau
 vc=ffh264vdpau
-va=vdpau
+#va=vdpau
 #monitoraspect=16:9
 #aspect=16:9
 #cache=2048
-#msglevel=all=6
+msglevel=all=6
 ao=pulse::5hdl
 
 [qubica-dx-audio]
 vo=vdpau
 vc=ffh264vdpau
-va=vdpau
+#va=vdpau
 #monitoraspect=16:9
 #aspect=16:9
 #cache=2048
-#msglevel=all=6
+msglevel=all=6
 ao=pulse::5hdr
-
-
-
 
