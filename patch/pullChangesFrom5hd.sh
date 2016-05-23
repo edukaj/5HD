@@ -1,8 +1,9 @@
 lista="listaFileDaprendere"
+prog="$(basename $0)"
 rm $lista
 for i in `find .`
 do 
-	[ "$i" == "." ] && continue
+	[[ "$i" == "." || "$i" == "./$prog" || "$i" == ".$lista" ]] && continue
 	file=$(echo ${i:1})
 	echo $file >> $lista
 done
