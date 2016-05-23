@@ -161,6 +161,8 @@ load-module module-filter-apply
 #.fail
 #.endif
 
+#set-card-profile alsa_card.pci-0000_00_1b.0 output:iec958-stereo+input:analog-stereo
+
 ### Make some devices default
-set-default-sink 5hdl 
+set-default-sink 5hdr
 #set-default-source input
