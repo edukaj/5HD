@@ -4,6 +4,6 @@
 
 theme = {}
 theme.use_wallpaper = true
-theme.wallpaper_sx = "~/.config/awesome/themes/qamf/background_sx.png"
-theme.wallpaper_dx = "~/.config/awesome/themes/qamf/background_dx.png"
+theme.wallpaper_sx = "~/.config/awesome/themes/qamf/background_sx.jpg"
+theme.wallpaper_dx = "~/.config/awesome/themes/qamf/background_dx.jpg"
 return theme
