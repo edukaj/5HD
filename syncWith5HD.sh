@@ -32,9 +32,13 @@ do
 done < ${tmpFile}
 { [ $KEEP_FILE -ne 1 ] && rm ${tmpFile} ; } || echo "$(tput setaf 4)Keeping temporary file $tmpFile$(tput sgr0)"
 
-while read line
-do
-	rm ${line} 
-done < ${FILELIST_TO_DELETE}
+if [ -e ${FILELIST_TO_DELETE} ]; then
+	while read line
+	do
+		rm ${line} 
+	done < ${FILELIST_TO_DELETE}
+fi
 
-rsync -avzR --files-from=${FILELIST_TO_MODIFY} ale@5hd:/ patch
+if [ -e ${FILELIST_TO_MODIFY} ]; then
+	rsync -avzR --files-from=${FILELIST_TO_MODIFY} ale@5hd:/ patch
+then
