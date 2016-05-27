@@ -77,3 +77,34 @@ In fondo imposto come sink di default il canale sinistro
 set-default-sink 5hdl
 
 
+# Prove systemd 
+facciamo qualche prova per vedere se usare systemd per lanciare tutto ha un senso.
+
+## Nomenclatura
+target: insieme di servizi
+i servizi possono essere sia demoni che script one shot e tanto altro ....; nel nostro caso la start_whole_system la trasformiano
+in un target. ad esempio il target score
+
+si pensera' di realizzare un target mms che corrisponde ad una start diversa 
+e cosi' via
+
+
+
+## struttura
+normalmente il target di default e' graphical.target
+la nostyra idea e' rendere lo score un target, per cui raccoglie tutti i servizi necessari per partire e fermarsi
+Questo permette di avere target diversi e poter cosi' testare in modo isolato contesti diversi di funzionamento (mms, score, effect server ..)
+
+Lo score.target richiede come Dipendenza (requires) graphica.target e parte solo dopo che i servizi di quel target sono attivi
+
+Il tutto si crea cosi'
+.si fa un file .service da qualche parte, anche in cartella locale (/opt/qubicaamf/services/)
+.sudo systemctl link <nome.service>
+questo crea un link in /etc/systemd/system al servizio
+
+in /lib/systemd/system ci deve essere un target; li'dentro ci si mette il .service
+B
+poi facendo systemctl enable <nome>.service dovrebbe create la cartella in /etc/systemd/system contenebet i servizi da lanciare 
+
+
+
