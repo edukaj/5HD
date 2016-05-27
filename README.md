@@ -29,7 +29,12 @@ In particolare perl si lamenta della mancata definizione di LC_ALL. La soluzione
 Vedere cartella etc/lightdm per le modifiche fatte
 
 Lightdm &eacute; un display manager che si occupa di lanciare X server, user sessione e greeter per il login. 
-Abbiamo modificato la configurazione in modo da fare l'autologin con utente ale 
+Abbiamo modificato la configurazione in modo da fare l'autologin con utente ale.
+
+Leggere attentamente il [seguente link](https://wiki.archlinux.org/index.php/LightDM) che spiega in dettaglio come usare lightdm
+e come impostare l'autologin.
+
+[Questo link](https://wiki.archlinux.org/index.php/PAM) spiega in dettaglio come il sistema gestisce i vari accessi ai vari utenti.
 
 ## Configurazione intel
 In questo [link](https://wiki.archlinux.org/index.php/intel_graphics) sono presenti una miriade di informazioni utili da tenere in considerazione sulla configurazione di GPU intel
@@ -75,6 +80,26 @@ load-module module-alsa-sink device=plughw:0,8 sink_name=5hdr
 In fondo imposto come sink di default il canale sinistro
 
 set-default-sink 5hdl
+
+##alsamixer
+Il file /var/lib/alsa/asound.state e' stato modificato per avere di default abilitate le uscite S/PDIF (digitali)
+altrimenti non si sente niente sui monitor, perche' di default aprte analogico.
+Per farlo, si usa alsamixer, si settano i valori corretti, e poi si fa 
+sudo alsactl store
+che serve per salvare il default.
+
+Ma: se si cambia il valore con alsamixer e si reboota, all avvio alsa se ne frega del valore che avevi salvato nel file,
+perche' sovrascive (vedi  https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture/Troubleshooting#Removing_old_ALSA_state_file_.28asound.state.29)
+quindi basta mettere il default corretto, il file corretto e non modificare nulla: in alternativa va disabiltiato
+il demone che salva al reboot
+
+##impostazioni mouse
+pare andare la semplice modifica per cui viene lnaciato X con --nocursor
+
+### Misc
+#### 4HD_VERSION
+Questo file si trovata in /4HD_VERSION ho pensato di muoverlo in /opt/qubicaamf/HD_VERSION in questo modo si ha un posto piu' intuititivo e poi il nome non dipende piu'
+dalla versione dell'hw.
 
 
 # Prove systemd 
