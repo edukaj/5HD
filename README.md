@@ -128,7 +128,6 @@ Il tutto si crea cosi'
 questo crea un link in /etc/systemd/system al servizio
 
 in /lib/systemd/system ci deve essere un target; li'dentro ci si mette il .service
-B
 poi facendo systemctl enable <nome>.service dovrebbe create la cartella in /etc/systemd/system contenebet i servizi da lanciare 
 
 
