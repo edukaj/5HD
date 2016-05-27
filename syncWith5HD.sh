@@ -41,4 +41,4 @@ fi
 
 if [ -e ${FILELIST_TO_MODIFY} ]; then
 	rsync -avzR --files-from=${FILELIST_TO_MODIFY} ale@5hd:/ patch
-then
+fi
