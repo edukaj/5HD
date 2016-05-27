@@ -46,7 +46,7 @@ done <<< "$DEVICES"
 echo "Variables are $HDMI1 and $HDMI2" | ${TEE}
 echo "XAUTHORITY is $XAUTHORITY" | ${TEE}
 xset dpms force on
-sleep 10
+sleep 10 
 if [[ ! -z "$HDMI1" && -z "$HDMI2" ]]
 then
 	${TEE} "Executing xrandr --output HDMI1 --mode 1280x720 --pos 0x0"
@@ -67,5 +67,6 @@ then
 	xrandr --output HDMI1 --mode 1280x720 --pos 0x0
 	xrandr --output HDMI2 --mode 1280x720 --pos 1280x0 --right-of HDMI1
 fi
-#${TEE} "restarting awesome"
-#pkill -SIGHUP awesome 
+
+${TEE} "restarting awesome"
+pkill -SIGHUP awesome 

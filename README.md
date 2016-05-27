@@ -29,7 +29,12 @@ In particolare perl si lamenta della mancata definizione di LC_ALL. La soluzione
 Vedere cartella etc/lightdm per le modifiche fatte
 
 Lightdm &eacute; un display manager che si occupa di lanciare X server, user sessione e greeter per il login. 
-Abbiamo modificato la configurazione in modo da fare l'autologin con utente ale 
+Abbiamo modificato la configurazione in modo da fare l'autologin con utente ale.
+
+Leggere attentamente il [seguente link](https://wiki.archlinux.org/index.php/LightDM) che spiega in dettaglio come usare lightdm
+e come impostare l'autologin.
+
+[Questo link](https://wiki.archlinux.org/index.php/PAM) spiega in dettaglio come il sistema gestisce i vari accessi ai vari utenti.
 
 ## Configurazione intel
 In questo [link](https://wiki.archlinux.org/index.php/intel_graphics) sono presenti una miriade di informazioni utili da tenere in considerazione sulla configurazione di GPU intel
@@ -90,5 +95,10 @@ il demone che salva al reboot
 
 ##impostazioni mouse
 pare andare la semplice modifica per cui viene lnaciato X con --nocursor
+
+### Misc
+#### 4HD_VERSION
+Questo file si trovata in /4HD_VERSION ho pensato di muoverlo in /opt/qubicaamf/HD_VERSION in questo modo si ha un posto piu' intuititivo e poi il nome non dipende piu'
+dalla versione dell'hw.
 
 
