@@ -1,0 +1,6 @@
+Package: 4hd-startup-scripts
+Section: main
+Maintainer: QubicaAMF
+Architecture: all
+Version: 10.0.1.88
+Description: 4hd-startup-scripts utility
