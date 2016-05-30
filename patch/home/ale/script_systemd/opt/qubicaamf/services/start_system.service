@@ -1,0 +1,10 @@
+[Unit]
+Description=Set enviorment variables for System
+
+[Service]
+ExecStart=/home/ale/script_systemd/home/ale/start_system.1.sh
+ExecStop=/home/ale/script_systemd/home/ale/stop_system.1.sh
+RemainAfterExit=true
+
+[Install]
+WantedBy=score.target

@@ -1,0 +1,95 @@
+#!/bin/bash
+
+APP_NAME=$(basename $0)
+NAME=$2
+PID_FILE="/tmp/${NAME}.pid"
+PRG_NAMES=$3
+
+RESTARTABLE=0
+if [ "$4" == "--restartable" ]; then
+	RESTARTABLE=1
+fi
+
+log()
+{
+	logger -s -t "$APP_NAME($NAME)" $1
+}
+
+start()
+{
+	log "starting watchdog..."
+	IFS=";"
+	for PRG_NAME in ${PRG_NAMES}; do
+	    ( 
+	    	failCounter=0;
+			while [ 1 ]; do 
+				startDate=$(date +%s)
+				log "start ${PRG_NAME} at ${startDate} (restartable: ${RESTARTABLE})..."
+				eval ${PRG_NAME}
+				RET_VAL=$?
+				endDate=$(date +%s)
+				if [[ ${RET_VAL} -eq 0 && ${RESTARTABLE} -eq 1 ]]; then
+					log "${PRG_NAME} termination at ${endDate}. Restart immediatly"
+					failCounter=0
+				elif [[ $((${startDate}+30)) -le ${endDate} ]]; then
+					log "unexpected ${PRG_NAME} termination at ${endDate} with code ${RET_VAL}. reset failCounter and try to restart..."
+					failCounter=0
+					sleep 1
+				elif [[ failCounter -le 5 ]]; then
+					log "unexpected ${PRG_NAME} early termination at ${endDate} with code ${RET_VAL}. failCounter is ${failCounter} restart in 5 sec..."
+					failCounter=$((${failCounter}+1))
+					sleep 5
+				else
+					log "unexpected ${PRG_NAME} last early termination at ${endDate} with code ${RET_VAL}. reset failCounter and restart in 60 sec..."
+					failCounter=0
+					sleep 60
+				fi
+			done
+		) &
+	    PROCESS_PID=$!
+	    echo ${PROCESS_PID} >> ${PID_FILE}
+	done
+	log "started  watchdog"
+}
+
+stop()
+{
+	log "stopping watchdog..."
+	if [ -f ${PID_FILE} ]; then
+		for PID in `cat ${PID_FILE}`; do
+	    	kill -9 $PID
+		done
+		rm ${PID_FILE}
+	fi
+	log "stopped watchdog"
+
+	PROCESSES=$PRG_NAMES
+	log "stopping ${PROCESSES}..."
+	local IFS=";"
+	for PROCESS in ${PROCESSES}; do
+		PROCLIST=$(ps aux | grep ${PROCESS} | grep -v 'grep' | grep -v "${APP_NAME}")
+		if [ -z $PROCLIST ]; then
+			log "nothing to kill for $PROCESS"
+			continue;
+		fi
+		PIDS=$(echo ${PROCLIST} | awk '{ ORS = ";"; print $2 }')
+		log "pids to kill for $PROCESS are: $PIDS"
+		for pid in ${PIDS} ; do
+		    kill ${pid} > /dev/null 2>&1
+		    sleep 0.5
+		    kill -0 ${pid} > /dev/null 2>&1
+		    if [ $? -eq 0 ]; then
+    			log "killing $pid violently"
+		    	kill -9 ${pid} > /dev/null 2>&1
+		    fi
+		done
+	done	
+}
+
+if [ "$1" == "start" ] ; then
+	start
+fi
+
+if [ "$1" == "stop" ] ; then
+	stop
+fi
