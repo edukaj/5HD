@@ -125,9 +125,55 @@ Lo `score.target` richiede come Dipendenza (requires) `graphica.target` e parte 
 Il tutto si crea cosi':
 
 + si fa un file `.service` da qualche parte, anche in cartella locale (`/opt/qubicaamf/services/`)
-+ sudo systemctl link `<nome.service>`
++ `sudo systemctl link nome.service`
 
 questo crea un link in `/etc/systemd/system` al servizio
 
 in `/lib/systemd/system` ci deve essere un target; li' dentro ci si mette il `.service`
 poi facendo systemctl enable `nome.service` dovrebbe create la cartella in `/etc/systemd/system` contenebet i servizi da lanciare 
+
+## Servizi che esistono nella 5HD
+Lo script di `start_whole_system.sh` si occupa sia di inizalizzare delle variabili che di *lanciare* dei demoni.
+
+Le variabili che vengono lanciate sono
+
++ *script* inizlizza un po' di variabili di ambiente
++ **script**: pulizia del disco
++ **script**: controllo dell'indirizzo ip della macchina (`get_last_valid_ip.sh` e `get_last_valid_ip.sh`) 
+  + **script**: in caso di errore chimata *REST* ad `mms-viewer` e `stop` di tutto.
++ **daemon**: net-reset: sembra che chiami nRbeoot quando riceve un determinato pacchetto dalla rete
++ **daemon**: *autoreset: esegue l'autoreset se l'indirizzo ip non e' valido????*
++ **script**: inizializzo variabili in base all'indirizzo IP che ho acquisito (`initialize_variables_from_ip.sh`)
++ **script**: *chiamata *REST* ad `mms-viewer` in base alla modalita' score o standalone*
++ **script**: ottieni l'indirizzo server del `mxqserver` (`get_mxserver_ip.sh`.
++ **script**: ottieni l'indirizzo ip del conqueror (`get_mxserver_ip.sh`)
++ **script**: *esegue `lantime` per impostare l'orario.* (`get_mxserver_ip.sh`)
++ **script**: scrive in un file tutte le info sulla 4HD
++ **script**: **resetta il **mutex** di sistema??? ** (`reset_mutex.sh`)
++ **script**: **configura il core dump???*** (`configure_core_dump.sh`)
++ **script**: *controlla se bisogna fare un reinit manuale* (`reinit_manually.sh`)
+  + se si chiamo `stop`
++ **script**: controlla se bisogna scaricare dei programmi
+  + se si chiamo (`upload_programs.sh`)
+    + **chiamo** `update_system.sh` **CASINO!!!**
+ + se no chiamo (`verify_deb_list.sh`) 
++ **script**: controllo per eventuale aggiornamento manuale (`upload_programs_manually.sh`)
++ **script**: inizializza l'HUB (`init_hub.sh`)
++ **script**: imposta questo indirizzo come valido: (`set_last_valid_ip.sh`)
++ **daemon**: **eseguo un demone che ping l'hub (tipo whatchdog) ATTENZIONE NON E' UN VERO DEMONE!!!** (`/home/ale/hub_watchdog.sh`)
++ **script**: inizializzazione *ISP*. (`init_isp.sh`)
++ **script**: Ottieni l'edid (`get_edid.sh`)
++ **Servizi**
+  + non-score
+    + **mms-server**
+    + **node_apps**
+    + **uftp**
+  + score
+    + **bowlingplus**
+    + **games**
+    + **intercom4hd**
+    + **mpp**
+    + **mms-server**
+    + **node_apps**
+    + **uftp**
++ **script**: lancio lo score   
