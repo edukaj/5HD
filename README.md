@@ -1,5 +1,4 @@
 # Immagine base 5hd
-
 ## Partenza da ubuntu server 16.04
 
 Ci troviamo meglio a partire da una versione server, perch&eacute; pare pi&uacute; semplice
@@ -16,10 +15,9 @@ una spiegazione sul perch&eacute; del cambio di nomenclatura della rete: eth0 &e
 di un metodo nuovo che potrebbe risolvere i nostri problemi. 
 
 ## Patch
-
 La cartella patch contiene le modifiche fatte alla versione ubuntu standard
 
-## Problema di LC_ALL e simili
+## Problema di `LC_ALL` e simili
 Qaundo ci colleghiamo ad un pc in generale tramite SSH non tutte le variabili di ambiente vengono
 inizilaizzate correttamente.
 
@@ -96,8 +94,7 @@ il demone che salva al reboot.
 Pare andare la semplice modifica per cui viene lnaciato X con --nocursor
 
 ## Misc
-
-### 4HD_VERSION`
+### 4HD_VERSION
 Ho pensato di muoverlo in `/opt/qubicaamf/HD_VERSION`
 in questo modo si ha un posto piu' intuititivo e poi il nome non dipende piu' dalla versione dell'hw.
 
@@ -106,30 +103,31 @@ Facciamo qualche prova per vedere se usare systemd per lanciare tutto ha un sens
 
 ## Nomenclatura
 
-- **target**: insieme di servizi.
-- **unit**: una unit e' una singola attivita' o componente. Ogni unita' e' composta da un singolo file 
++ **unit**: una unit e' una singola attivita' o componente. Ogni unita' e' composta da un singolo file 
 di testo che la descrive, esprime di cosa ha bisogno prima e dopo e altri dettagli
-- **servizio**: e' un tipo di **unit**
++ **service**: questo tipo di unit e' il piu' comune e consente a systemd di inizarlo e di monitorarlo.
++ **target**: sono usati per unire e collegare altri unit assiemte in modo da descrivere un determinato stato per il 
+sistema.
 
-I servizi possono essere sia demoni che script one shot e tanto altro ....; nel nostro caso la start_whole_system la trasformiano
+I servizi possono essere sia demoni che script one shot e tanto altro ....; nel nostro caso la `start_whole_system` la trasformiano
 in un target. ad esempio il target score
 
-si pensera' di realizzare un target mms che corrisponde ad una start diversa cosi' via
+si pensera' di realizzare un target mms che corrisponde ad una start diversa cosi' via.
 
-## struttura
-Il target di default e' graphical.target, la nostyra idea e' rendere lo score un target,
+## Struttura
+Il target di default e' `graphical.target`, la nostyra idea e' rendere lo score un target,
 per cui raccoglie tutti i servizi necessari per partire e fermarsi
 
 Questo permette di avere target diversi e poter cosi' testare in modo isolato contesti diversi di funzionamento (mms, score, effect server ..)
 
-Lo score.target richiede come Dipendenza (requires) graphica.target e parte solo dopo che i servizi di quel target sono attivi
+Lo `score.target` richiede come Dipendenza (requires) `graphica.target` e parte solo dopo che i servizi di quel target sono attivi
 
 Il tutto si crea cosi':
 
-- si fa un file .service da qualche parte, anche in cartella locale (/opt/qubicaamf/services/)
-- sudo systemctl link <nome.service>
++ si fa un file `.service` da qualche parte, anche in cartella locale (`/opt/qubicaamf/services/`)
++ sudo systemctl link `<nome.service>`
 
 questo crea un link in `/etc/systemd/system` al servizio
 
-in `/lib/systemd/system` ci deve essere un target; li' dentro ci si mette il .service
-poi facendo systemctl enable <nome>.service dovrebbe create la cartella in `/etc/systemd/system` contenebet i servizi da lanciare 
+in `/lib/systemd/system` ci deve essere un target; li' dentro ci si mette il `.service`
+poi facendo systemctl enable `nome.service` dovrebbe create la cartella in `/etc/systemd/system` contenebet i servizi da lanciare 
