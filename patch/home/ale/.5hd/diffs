@@ -1,0 +1,273 @@
+-b0ab699aab073a77b70a940908940c8e03185e9a  /etc/passwd-
++1405c80e8d14808779d939683a59671b0db106d1  /etc/passwd-
+-bf0291924298b911d1fbd9777c37a6b2c7320146  /etc/gshadow-
++1c63e8cea2c9300abe4b4ad6d2a604b6891408b3  /etc/gshadow-
+-5749574bcecd975bf798c6fe183192578970bc89  /etc/group-
++03114d233aeb4423aebe30991ffd75326ebba063  /etc/group-
++8a68bf448df9cd2d035b604fcd272787615e31a6  /etc/pam.d/slim
++3b99ebb840a0533e349bb2355f603b693dc0c059  /etc/pam.d/gnome-screensaver
+-e725f55040a63092ce59c7edfbb75a7250d6987f  /etc/ld.so.cache
++302148837addbd38888f401bdd3cb9976a629e85  /etc/ld.so.cache
+-1de782cf03dfed987836d4445ffbdd23c90bd176  /etc/passwd
++a283e78bf9504cb84512bcc89ce0702f6d591485  /etc/passwd
++806d126b25cb276852ab2493791c2c5adf493fc4  /etc/dbus-1/system.d/com.ubuntu.SystemService.conf
++bef5c49cf4a8fa7d90cc39723acac8155f2f18e3  /etc/dbus-1/system.d/com.redhat.NewPrinterNotification.conf
++9f75bb04fc78a790b1958cfe09083dd0ba7243f3  /etc/dbus-1/system.d/nm-pptp-service.conf
++4be4db97c593c1a4bcedae473f6c9cde2dc69bac  /etc/dbus-1/system.d/org.freedesktop.UPower.conf
++787b3535be910f2889719f0f11d8cbd57e2127d7  /etc/dbus-1/system.d/org.freedesktop.ModemManager1.conf
++fb80d3afb8cd327a62a52dac7a3f806bb337aefa  /etc/dbus-1/system.d/wpa_supplicant.conf
++91f160b4a74480546f92d49663c449997a7636e1  /etc/dbus-1/system.d/net.hadess.SensorProxy.conf
++d63cc527adb496b163ccda79d3683d4555724b8d  /etc/dbus-1/system.d/bluetooth.conf
++3bf0ff38cf4f0261a22b46d0678397727fcabbd1  /etc/dbus-1/system.d/org.freedesktop.PackageKit-aptd.conf
++b3a34cb49178391dc68a3cb1118671d7da87a78f  /etc/dbus-1/system.d/nm-dispatcher.conf
++b1177e63751ccaeb5ee7a8c2e9608dad1ecc10b3  /etc/dbus-1/system.d/Mountall.Server.conf
++6d50a5d1484df11d2096ffeeadeb0d972064b893  /etc/dbus-1/system.d/org.freedesktop.UDisks2.conf
++1de558ae636d2ef249e48fd34a594ca24567526a  /etc/dbus-1/system.d/com.redhat.PrinterDriversInstaller.conf
++72b953dd86ee839a9d0e3690c51a028e60fa50bd  /etc/dbus-1/system.d/org.freedesktop.NetworkManager.conf
++8eda5999144630ea060f00c75307142c1004277b  /etc/dbus-1/system.d/org.freedesktop.realmd.conf
++dd94e1e959bd9765f630b76d62ff008ed1799a0b  /etc/dleyna-server-service.conf
+-aff1b4af3c656dccc28df454dc83027d1bc7d846  /etc/profile.d/Z97-byobu.sh
++8e4c49ed4cad5e4ed73e583775526f586c008626  /etc/UPower/UPower.conf
+-06b55749cf532a2984aefdc69454d2170c9728ea  /etc/default/kdm.d/10_desktop-base
++ad84fc06b88b701e3bbf66737080f77636b982ec  /etc/default/im-config
+-139dccda316705748b1eb991b332046c6a2a691c  /etc/shadow-
++886fd585d69420fb0ffdd017a5c5d956ba040fa0  /etc/shadow-
++13402b4e5e608f4f92edfe429cff7f766df36023  /etc/apparmor.d/local/usr.sbin.ippusbxd
++8a9ac97bd1c63d83724f86156a70e4b7c304f592  /etc/apparmor.d/cache/usr.sbin.ippusbxd
++799ae0cb40ad9f96809b3f4c1a15af6981b93980  /etc/apparmor.d/usr.sbin.ippusbxd
++ad7285fdc0e863bee1d2955c1a83c4ab22609b08  /etc/security/pwquality.conf
++54fc208d1bc05a833d12a75deca2b0f6bb9c5737  /etc/dnsmasq.d/network-manager
++6dc19e19d2e38ce825ae0563aa435968b0cdfe51  /etc/bluetooth/input.conf
++dcbb9a5c28a69e5c716dc7d2fbb452b2511a3bd4  /etc/bluetooth/main.conf
++9eed9d624b62674808d46ff46e6250d2f1bd193c  /etc/bluetooth/network.conf
++d08c3edc8523dc3edbfc43afb3fc3cce7385d060  /etc/bluetooth/proximity.conf
+-139dccda316705748b1eb991b332046c6a2a691c  /etc/shadow
++b3a0870e23bc37ba875f896fa7ee9833736112e6  /etc/shadow
++95c65b35e3c5407f6a5fb00d96c4f3aaa7fc8619  /etc/logrotate.d/slim
++235c4491247e523fc4daafa565dff888a06203e3  /etc/gnome/menus.blacklist
++d347347e6242c8cfb72525cc5783464a8e162d14  /etc/NetworkManager/dispatcher.d/01ifupdown
++0188f4890bcfde56989b919ba20f586c197636cb  /etc/NetworkManager/NetworkManager.conf
++31ba58daa434798c544d9996f82505f2d9bc1762  /etc/NetworkManager/VPN/nm-pptp-service.name
++75a1592b5004fff2d145445a273f21216cec30d8  /etc/slim.conf
++cc0ac5a3f302cbdfbae4c8e4e3ddc17561612087  /etc/signond.conf
++e3e3df8389698032acff600cd8a50bfcce6e6664  /etc/lintianrc
++f39e166b94ef67622d18df0584963b911ed3584f  /etc/X11/xinit/xinputrc
++68c35f52153a0ff32fb120e2c6378bb4ec213116  /etc/X11/Xsession.d/90gpg-agent
+-ea9a56aec475011656c5e10fff92df91f538b692  /etc/X11/Xsession.d/65snappy
++2b961f8f7c311e89e844efad600936169b42a732  /etc/X11/Xsession.d/65snappy
++aa152c974f39038bdd47c39500286696eda43d04  /etc/X11/Xsession.d/70im-config_launch
++d48dd8d4c2b625ab3b1bd9bf318ab2f82333bd8f  /etc/X11/Xsession.d/20slim_locale
++e359ff60780e9dbd87ffdbbc4d750889d0426644  /etc/X11/default-display-manager.dpkg-tmp
+-80bf48d8931b581d38e2be2c40f0b6abd5589aac  /etc/byobu/backend
+-5123ea1dc0525a320b4d749aa10a702efcfa1998  /etc/byobu/socketdir
++44883f476378b66410d31808640b8d5af9ae3328  /etc/usb_modeswitch.conf
++50c542c96f41504b493898a813160f7d1bc31142  /etc/init/bootmisc.sh.conf
++548f64461d3645b970bd55072d0584880c27ecf9  /etc/init/checkroot.sh.conf
++9a565a9b6cc776318d12e1ab0604ed1a67f29e97  /etc/init/mounted-tmp.conf
++3ef9f23deed2e23d3ef2b88b842fb882313e15ce  /etc/init/lightdm.override
++b8b31506d53049ffd13f229ad7d801d587540f73  /etc/init/mountall.sh.conf
++e22156af90f8128461359edf881460390ce58fcd  /etc/init/mounted-dev.conf
++3114fff643779c8901a7b14b5194de84d90da028  /etc/init/mounted-proc.conf
++75f7a68652f3a0c7868cb88bd8f10cfa4bae6b9b  /etc/init/mountdevsubfs.sh.conf
++4418e4f8ee46a2c9e220756db38c07294ee4b0a5  /etc/init/mountall-shell.conf
++bf4cd382a53d71dd9fbab65845cedc8fe5729fb9  /etc/init/mountkernfs.sh.conf
++e270af7c4148e0c0091bc8e2458e0a026af4b2c3  /etc/init/bluetooth.conf
++8eddeb2509b8e4726cb090e2ec57e571f21b00cf  /etc/init/slim.conf
++d18be4c06399d4b9c8f308b78451ebebc806903c  /etc/init/mounted-var.conf
++750e374d8f86cb51c060b53ee0a6bff5786f3764  /etc/init/checkroot-bootclean.sh.conf
++6e9c9c0a4d5d34f19b1af6fda9855a7a42fb794a  /etc/init/checkfs.sh.conf
++457a028ec16650880476a53fda31cdd684f21c05  /etc/init/mountnfs-bootclean.sh.conf
++88e395fc1291f274bd0b74415d5be27d8a70eed9  /etc/init/mountall-reboot.conf
++631669d39a893c5555a6f548b6ee71930fb430ec  /etc/init/mountall-net.conf
++89ffa60db15fac6f2fa250722c6d9a05f326b761  /etc/init/network-manager.conf
++27864d1e0af32a5f37fcecd44c6d1404cd68bf14  /etc/init/usb-modeswitch-upstart.conf
++afe9d6736a3197e0cfcfae2584bf329036463df7  /etc/init/mountall-bootclean.sh.conf
++9abcbc98ccc29d2ab5d8372bb6f9597099c07b6a  /etc/init/mountall.conf
++4891cade0e63ef1005f07fb6a3f1d873477d9c5f  /etc/init/mtab.sh.conf
++e96dc2aa0aca704c050d94b876f96d0277f23d34  /etc/init/mountnfs.sh.conf
++f9fc1469c61f4e0a983f5fc3f66519d8d2b96ef9  /etc/init/mounted-run.conf
++28f3b6aff9eb5e37acaa7ad9a13c3b7f3ea3ad97  /etc/init/mounted-debugfs.conf
++bf8fb1eebe5f22e32b20a62cf770ed993f8912b0  /etc/dconf/profile/ibus
++111cfae401b47ac7782314fcfd843c504e2a9298  /etc/dconf/db/ibus.d/00-upstream-settings
+-ea27dd741e49052dbb33660ad8df631e071b0463  /etc/mailcap
++3b6bba9daa1347e9b1006f3789965384b57a01ca  /etc/mailcap
++2955697205a3e16576459eb96e7c63372cfdc73d  /etc/init.d/network-manager
++b55ec0d9d8f5bb385c4c05e5f08978ec4aeb2b94  /etc/init.d/slim
+-68d4fb5862c1a837411f9ad1e7aef44109305e1b  /etc/init.d/.depend.start
++191164a0996e307fe322a8e1f2567744cb30d3e4  /etc/init.d/.depend.start
++004e8008b0f8dda526e982e148eb39c207af44b8  /etc/init.d/bluetooth
+-ef16d5b95b09e317747a916b7ec7e7c3900c0c0b  /etc/init.d/.depend.stop
++cb0e736d9207131cbf5a604a6b213b0adcca56e9  /etc/init.d/.depend.stop
+-576ffc2f578a8b78b2295584c059338d976c485a  /etc/gtk-2.0/im-multipress.conf
+-7663a1446025f4b57bdb09df3e70b395eb676384  /etc/gshadow
++98c8c87df42a347498a380dc8efa221ce58f8769  /etc/gshadow
++c6f31bcb46ac47da413d49733c95105a61036a1e  /etc/.slim.conf.swp
+-f6a96ec853a0c602f3765d028a09f7ac865e60e5  /etc/group
++c3bf661ec762def01ba5f071be5c8dced9f4b303  /etc/group
++1df66d0a6c80ca3928cf2f5b71fbe1a919459405  /etc/xdg/autostart/nm-applet.desktop
++fd7ca29e682dbe9e768ae4241d132152ee6ebf08  /etc/xdg/autostart/gnome-screensaver.desktop
++e66d7fd040a66c9e1bb4151e7bc5de4648247b5c  /etc/xdg/autostart/polkit-gnome-authentication-agent-1.desktop
++c3075dc7cee799e94323571f7c40d10eeedd54da  /etc/xdg/autostart/indicator-messages.desktop
++885d7cab6be1c08c663e0e91074379955c623361  /etc/xdg/autostart/indicator-application.desktop
++4084f1ae281c659fc767efd2eb159968c6920be0  /etc/xdg/autostart/indicator-sound.desktop
++ca075537529d6cac21606a7c1edd33febb0b159b  /etc/xdg/autostart/print-applet.desktop
++e54d3ab7cb83af2211060ba254b77424bb8b1a37  /etc/xdg/autostart/gnome-settings-daemon.desktop
++177099e3ec31052274bc65311f4cfd1345a62a42  /etc/xdg/autostart/indicator-session.desktop
++16d455c1c3e76bbc988df682e79f0d56e8aeea96  /etc/xdg/autostart/indicator-keyboard.desktop
++0bd8927b24e18d1f2b86a2de80e8b0fae0605d55  /etc/xdg/autostart/indicator-power.desktop
++5670be40849f2718d5c937a213201f259119c7ce  /etc/xdg/autostart/notification-daemon-autostart.desktop
++9b269748e92981c0db647eaf48174b1c3d771407  /etc/xdg/menus/gnome-applications.menu
++9879fb41998f1330ca800c5ec348d3ae198d5924  /etc/wpa_supplicant/ifupdown.sh
++3a9037fab01cda79fc1649525e7e606b4db97bd4  /etc/wpa_supplicant/functions.sh
++2a31628659cc890a93e988001c1e57de34c76d08  /etc/wpa_supplicant/action_wpa.sh
+-14152fef55b4f57df3bd000219d34486722986cb  /etc/systemd/system/splashscreen.service
++30488e740fdcfcf5be911b5138c0a9cb1857f1b9  /etc/apport/crashdb.conf.d/signon-crashdb.conf
++90b7e95247f25bc5979a273798f21df2bf97c2b9  /etc/apport/crashdb.conf.d/indicator-sound-crashdb.conf
++af160d7922836e27514bc7cc933f8e88b8551426  /etc/cupshelpers/preferreddrivers.xml
+-8559dbcd82c5f0b25fe4b60cf07b459e50cccadc  /home/ale/.viminfo
++fee8d3e00a975a562d3d1ea53c55f2442a0b0b28  /home/ale/.viminfo
+-009784127fa3fe5bf9940448ea389e3d171d7312  /home/ale/.Xauthority
++0fd3aa6edf02ce18e72999feaae2ef1ab938afd2  /home/ale/.Xauthority
+-851922dd5415d687a45e99c205ab365800b6f25e  /home/ale/.bash_history
++74c2db310c6f104e25d039b59fd25f68e4824d34  /home/ale/.bash_history
+-d83b1301b406203f8188c3d3152a9012f92357a8  /home/ale/.5hd/curr/usr_local.list
+-ba1ce242a9b6c6ba50f564d0d8f862d06186e527  /home/ale/.5hd/curr/etc.list
+-9cc905fd577a97361014b84c05fbfe9c63134fb4  /home/ale/.5hd/curr/lib.list
+-1e70e726daa44a87cce5e554d8c1e5b14390da61  /home/ale/.5hd/curr/home.list
++4886ee84f6c21f44a85b609f1d5c2d626f9c930f  /home/ale/.5hd/diffs
++7b87577211f2f732d3ee0d9405b6b9631a4b808e  /home/ale/.5hd/curr/packages.list
++de82a3dfd4ec9b02f5df0dbae6d08c883915e06d  /home/ale/.5hd/curr/usr_local.list
++2766487acf5e8e7b67f278ef73656b0c3bfb2b6e  /home/ale/.5hd/curr/etc.list
++16221b182fe3aae6355881f03377c2476c64d6ce  /home/ale/.5hd/curr/lib.list
++cda1d83c56191ab9fbde6b51762718ba30fe50a8  /home/ale/.5hd/curr/home.list
++eeda22c01ef78ce8ce4b34a89741e13081239f8b  /home/ale/.5hd/prev/packages.list
+-8c395952148dfda0043f576e985a703cf07ae6d8  /home/ale/.5hd/prev/home.list
++49e7aacbcbdd443cc0aad0f5c986f6bc2a66e712  /home/ale/.5hd/prev/home.list
+-07fe4b3a44e5999dcbb3925f4064e8c79642e618  /home/ale/.xsession-errors
++da39a3ee5e6b4b0d3255bfef95601890afd80709  /home/ale/.xsession-errors
+-d0840e6c0f419670215aeb97f64c0bce6f178493  /home/ale/.xsession-errors.old
++caeecd6faed3b67651dbde780e35f64f71877381  /home/ale/.xsession-errors.old
+-4b486d55cf2cb3dd8964dead77dabb6f96caeef4  /home/ale/.local/share/xorg/Xorg.0.log
+-b82184b673d01dc63b0b2b724c8aa5b39d51601a  /home/ale/.local/share/xorg/Xorg.0.log.old
+-084c1b50e80430c447563ebbc37c03b514be7e72  /home/ale/.dbus/session-bus/1b731f547ec7ae006e8f806a57349640-0
++0e5358bac200d3ee104bc59b4fb62ddd5d945a72  /home/ale/.local/share/xorg/Xorg.1.log
++49749707707a4146c69a59455a6b3dbfc6e82699  /home/ale/.local/share/xorg/Xorg.0.log
++eba7754cd026c05294711095770b4e88f764d2aa  /home/ale/.local/share/xorg/Xorg.0.log.old
++bff0dabd15c6e7c7d6b2c1ea2fc1f7491a0a4c77  /home/ale/.local/share/xorg/Xorg.1.log.old
++2bafda89eb94af00698ecd875242910499dcc4b1  /home/ale/.xinitrc
++63f8544f42cafe374d97ba70f2b4f0c06ffec136  /home/ale/.dbus/session-bus/1b731f547ec7ae006e8f806a57349640-1
++2a191db15ce330c1197e50baca84b8eefd2a72cf  /home/ale/.dbus/session-bus/1b731f547ec7ae006e8f806a57349640-0
+-538bec9e0981571dd198eb4f1a9a82378d18f7aa  /home/ale/.lesshst
+-0a68a8afa9cec643d82b2ee4859857cf8eb462e6  /home/ale/.config/htop/htoprc
++11b881325731607fbf93cb5a37cb271face6d7d8  /home/ale/.lesshst
++bdb77b2fa3c0569fb3329a5e8cf35933dc33474d  /home/ale/.config/htop/htoprc
+-73f02c73a5fb257eac42b680e8ebccad33a5d72c  /home/ale/.config/awesome/themes/qamf/theme.lua
++dd136dbe9c79a395fd879735e90641dbf5227a17  /home/ale/.config/awesome/themes/qamf/theme.lua
++7019a3159bc5b2172183b28597044482c317c714  /lib/udev/rules.d/60-gnupg2.rules
++494f10c5ea2e8dbebc72234ab192ae14a12404c6  /lib/x86_64-linux-gnu/libpcsclite.so.1.0.0
+-0a055a8280ce4b8a914c36b470e57bcaef729107  /lib/systemd/system/snapd.service
++727de0a282882a97fcbf8afe190e1f8a24b711e4  /lib/systemd/system/snapd.service
++4081d59b64d497e3d35036fa0120ac37e1a5994a  /lib/systemd/system/slim.service
+-402e163a487cffa65f7f9ac4b48ad2f423989677  /lib/systemd/system/score.target
+-95a1370d1a22df59b1e70d92e18481b656c03c4d  /lib/systemd/system/qamf.target
+
++ii  dstat                               0.7.2-4                                  all          versatile resource statistics tool
++ii  esound-common                       0.2.41-11                                all          Enlightened Sound Daemon - Common files
+-rc  liba52-0.7.4:amd64                  0.7.4-18                                 amd64        library for decoding ATSC A/52 streams
++ii  liba52-0.7.4:amd64                  0.7.4-18                                 amd64        library for decoding ATSC A/52 streams
++ii  libaa1:amd64                        1.4p5-44build1                           amd64        ASCII art library
++ii  libaacs0:amd64                      0.8.1-1                                  amd64        free-and-libre implementation of AACS
++ii  libass5:amd64                       0.13.1-1                                 amd64        library for SSA/ASS subtitles rendering
+-rc  libaudiofile1:amd64                 0.3.6-2ubuntu0.15.10.1                   amd64        Open-source version of SGI's audiofile library
++ii  libaudio2:amd64                     1.9.4-4                                  amd64        Network Audio System - shared libraries
++ii  libaudiofile1:amd64                 0.3.6-2ubuntu0.15.10.1                   amd64        Open-source version of SGI's audiofile library
+-rc  libbdplus0:amd64                    0.1.2-1                                  amd64        implementation of BD+ for reading Blu-ray Discs
++ii  libavcodec-ffmpeg56:amd64           7:2.8.6-1ubuntu2                         amd64        FFmpeg library with de/encoders for audio/video codecs - runtime files
++ii  libavformat-ffmpeg56:amd64          7:2.8.6-1ubuntu2                         amd64        FFmpeg library with (de)muxers for multimedia containers - runtime files
++ii  libavutil-ffmpeg54:amd64            7:2.8.6-1ubuntu2                         amd64        FFmpeg library with functions for simplifying programming - runtime files
++ii  libbdplus0:amd64                    0.1.2-1                                  amd64        implementation of BD+ for reading Blu-ray Discs
++ii  libbluray1:amd64                    1:0.9.2-2                                amd64        Blu-ray disc playback support library (shared library)
++ii  libbs2b0:amd64                      3.1.0+dfsg-2.2                           amd64        Bauer stereophonic-to-binaural DSP library
++ii  libcaca0:amd64                      0.99.beta19-2build2~gcc5.2               amd64        colour ASCII art library
++ii  libcdio-cdda1:amd64                 0.83-4.2ubuntu1                          amd64        library to read and control digital audio CDs
++ii  libcdio-paranoia1:amd64             0.83-4.2ubuntu1                          amd64        library to read digital audio CDs with error correction
++ii  libcdio13:amd64                     0.83-4.2ubuntu1                          amd64        library to read and control CD-ROM
+-rc  libcrystalhd3:amd64                 1:0.0~git20110715.fdd2f19-11build1       amd64        Crystal HD Video Decoder (shared library)
++ii  libcrystalhd3:amd64                 1:0.0~git20110715.fdd2f19-11build1       amd64        Crystal HD Video Decoder (shared library)
+-rc  libdca0:amd64                       0.0.5-7build1                            amd64        decoding library for DTS Coherent Acoustics streams
++ii  libdca0:amd64                       0.0.5-7build1                            amd64        decoding library for DTS Coherent Acoustics streams
+-rc  libdirectfb-1.2-9:amd64             1.2.10.0-5.1                             amd64        direct frame buffer graphics - shared libraries
++ii  libdirectfb-1.2-9:amd64             1.2.10.0-5.1                             amd64        direct frame buffer graphics - shared libraries
++ii  libdv4:amd64                        1.0.0-7                                  amd64        software library for DV format digital video (runtime lib)
++ii  libdvdnav4:amd64                    5.0.3-1                                  amd64        DVD navigation library
++ii  libdvdread4:amd64                   5.0.3-1                                  amd64        library for reading DVDs
++ii  libenca0:amd64                      1.18-1                                   amd64        Extremely Naive Charset Analyser - shared library files
+-rc  libesd0:amd64                       0.2.41-11                                amd64        Enlightened Sound Daemon - Shared libraries
++ii  libesd0:amd64                       0.2.41-11                                amd64        Enlightened Sound Daemon - Shared libraries
+-rc  libfaad2:amd64                      2.8.0~cvs20150510-1                      amd64        freeware Advanced Audio Decoder - runtime files
++ii  libfaad2:amd64                      2.8.0~cvs20150510-1                      amd64        freeware Advanced Audio Decoder - runtime files
++ii  libgme0:amd64                       0.6.0-3                                  amd64        Playback library for video game music files - shared library
+-rc  libgsm1:amd64                       1.0.13-4                                 amd64        Shared libraries for GSM speech compressor
++ii  libgsm1:amd64                       1.0.13-4                                 amd64        Shared libraries for GSM speech compressor
++ii  libldb1:amd64                       2:1.1.24-1ubuntu3                        amd64        LDAP-like embedded database - shared library
++ii  liblircclient0:amd64                0.9.0-0ubuntu6                           amd64        infra-red remote control support - client library
+-rc  libmad0:amd64                       0.15.1b-8ubuntu1                         amd64        MPEG audio decoder library
++ii  libmad0:amd64                       0.15.1b-8ubuntu1                         amd64        MPEG audio decoder library
+-rc  libmodplug1:amd64                   1:0.8.8.5-2                              amd64        shared libraries for mod music based on ModPlug
++ii  libmodplug1:amd64                   1:0.8.8.5-2                              amd64        shared libraries for mod music based on ModPlug
++ii  libmp3lame0:amd64                   3.99.5+repack1-9build1                   amd64        MP3 encoding library
+-rc  libmpeg2-4:amd64                    0.5.1-7                                  amd64        MPEG1 and MPEG2 video decoder library
++ii  libmpeg2-4:amd64                    0.5.1-7                                  amd64        MPEG1 and MPEG2 video decoder library
++ii  libmpg123-0:amd64                   1.22.4-1                                 amd64        MPEG layer 1/2/3 audio decoder (shared library)
+-rc  libopenal-data                      1:1.16.0-3                               all          Software implementation of the OpenAL audio API (data files)
+-rc  libopenal1:amd64                    1:1.16.0-3                               amd64        Software implementation of the OpenAL audio API (shared library)
+-rc  libopenjpeg5:amd64                  1:1.5.2-3.1                              amd64        JPEG 2000 image compression/decompression library - runtime
++ii  libopenal-data                      1:1.16.0-3                               all          Software implementation of the OpenAL audio API (data files)
++ii  libopenal1:amd64                    1:1.16.0-3                               amd64        Software implementation of the OpenAL audio API (shared library)
++ii  libopenjpeg5:amd64                  1:1.5.2-3.1                              amd64        JPEG 2000 image compression/decompression library - runtime
++ii  libopus0:amd64                      1.1.2-1ubuntu1                           amd64        Opus codec runtime library
++ii  libpostproc-ffmpeg53:amd64          7:2.8.6-1ubuntu2                         amd64        FFmpeg library for post processing - runtime files
+-rc  libpython2.7-minimal:amd64          2.7.11-7ubuntu1                          amd64        Minimal subset of the Python language (version 2.7)
++ii  libpython-stdlib:amd64              2.7.11-1                                 amd64        interactive high-level object-oriented language (default python version)
++ii  libpython2.7:amd64                  2.7.11-7ubuntu1                          amd64        Shared Python runtime library (version 2.7)
++ii  libpython2.7-minimal:amd64          2.7.11-7ubuntu1                          amd64        Minimal subset of the Python language (version 2.7)
++ii  libpython2.7-stdlib:amd64           2.7.11-7ubuntu1                          amd64        Interactive high-level object-oriented language (standard library, version 2.7)
+-rc  libschroedinger-1.0-0:amd64         1.0.11-2.1build1                         amd64        library for encoding/decoding of Dirac video streams
++ii  libschroedinger-1.0-0:amd64         1.0.11-2.1build1                         amd64        library for encoding/decoding of Dirac video streams
++ii  libsdl1.2debian:amd64               1.2.15+dfsg1-3                           amd64        Simple DirectMedia Layer
++ii  libshine3:amd64                     3.1.0-4                                  amd64        Fixed-point MP3 encoding library - runtime files
+-rc  libsnappy1v5:amd64                  1.1.3-2                                  amd64        fast compression/decompression library
++ii  libsmbclient:amd64                  2:4.3.9+dfsg-0ubuntu0.16.04.2            amd64        shared library for communication with SMB/CIFS servers
++ii  libsnappy1v5:amd64                  1.1.3-2                                  amd64        fast compression/decompression library
+-rc  libspeex1:amd64                     1.2~rc1.2-1ubuntu1                       amd64        The Speex codec runtime library
++ii  libsoxr0:amd64                      0.1.2-1                                  amd64        High quality 1D sample-rate conversion library
++ii  libspeex1:amd64                     1.2~rc1.2-1ubuntu1                       amd64        The Speex codec runtime library
++ii  libssh-gcrypt-4:amd64               0.6.3-4.3                                amd64        tiny C SSH library (gcrypt flavor)
++ii  libswresample-ffmpeg1:amd64         7:2.8.6-1ubuntu2                         amd64        FFmpeg library for audio resampling, rematrixing etc. - runtime files
++ii  libswscale-ffmpeg3:amd64            7:2.8.6-1ubuntu2                         amd64        FFmpeg library for image scaling and various conversions - runtime files
++ii  libtalloc2:amd64                    2.1.5-2                                  amd64        hierarchical pool based memory allocator
++ii  libtevent0:amd64                    0.9.28-0ubuntu0.16.04.1                  amd64        talloc-based event loop library - shared library
++ii  libtheora0:amd64                    1.1.1+dfsg.1-8                           amd64        Theora Video Compression Codec
+-rc  libtwolame0:amd64                   0.3.13-1.2                               amd64        MPEG Audio Layer 2 encoding library
++ii  libtwolame0:amd64                   0.3.13-1.2                               amd64        MPEG Audio Layer 2 encoding library
+-rc  libvorbisidec1                      1.0.2+svn18153-0.2                       amd64        Integer-only Ogg Vorbis decoder, AKA "tremor"
++ii  libvorbisidec1                      1.0.2+svn18153-0.2                       amd64        Integer-only Ogg Vorbis decoder, AKA "tremor"
++ii  libwavpack1:amd64                   4.75.2-2                                 amd64        audio codec (lossy and lossless) - library
++ii  libwbclient0:amd64                  2:4.3.9+dfsg-0ubuntu0.16.04.2            amd64        Samba winbind client library
++ii  libwebp5:amd64                      0.4.4-1                                  amd64        Lossy compression of digital photographic images.
++ii  libx264-148:amd64                   2:0.148.2643+git5c65704-1                amd64        x264 video coding library
++ii  libx265-79:amd64                    1.9-3                                    amd64        H.265/HEVC video stream encoder (shared library)
+-rc  libxvidcore4:amd64                  2:1.3.4-1                                amd64        Open source MPEG-4 video codec (library)
++ii  libxvidcore4:amd64                  2:1.3.4-1                                amd64        Open source MPEG-4 video codec (library)
++ii  libzvbi-common                      0.2.35-10                                all          Vertical Blanking Interval decoder (VBI) - common files
++ii  libzvbi0:amd64                      0.2.35-10                                amd64        Vertical Blanking Interval decoder (VBI) - runtime files
++ii  mplayer                             2:1.2.1-1                                amd64        movie player for Unix-like systems
++ii  python                              2.7.11-1                                 amd64        interactive high-level object-oriented language (default version)
+-rc  python2.7-minimal                   2.7.11-7ubuntu1                          amd64        Minimal subset of the Python language (version 2.7)
++ii  python-minimal                      2.7.11-1                                 amd64        minimal subset of the Python language (default version)
++ii  python-talloc                       2.1.5-2                                  amd64        hierarchical pool based memory allocator - Python bindings
++ii  python2.7                           2.7.11-7ubuntu1                          amd64        Interactive high-level object-oriented language (version 2.7)
++ii  python2.7-minimal                   2.7.11-7ubuntu1                          amd64        Minimal subset of the Python language (version 2.7)
++ii  samba-libs:amd64                    2:4.3.9+dfsg-0ubuntu0.16.04.2            amd64        Samba core libraries
+-a539ba838fd4dd7ebee1dbafdd1091d8f1c2ab8c  /usr/local/bin/snapshot
++ca75315475376eccc956582e9f45e0cb2a60fd27  /usr/local/bin/snapshot
