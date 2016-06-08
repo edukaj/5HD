@@ -128,6 +128,7 @@ a65e7736a69505e59f9e73a6c1c4f39a4a086068  /lib/udev/rules.d/70-power-switch.rule
 9284dc7fee4e06b9c453aea96a212614151beb70  /lib/udev/rules.d/60-block.rules
 c2294eed00ea257190069e6a15cb9505ac12bb1e  /lib/udev/rules.d/70-iscsi-network-interface.rules
 9ae9092dfcb9b2cbb9d5dccf999a68a4cf8d31ed  /lib/udev/rules.d/78-graphics-card.rules
+7019a3159bc5b2172183b28597044482c317c714  /lib/udev/rules.d/60-gnupg2.rules
 4ffb7b0bf71d086693de495d0d001bdb9be9791d  /lib/udev/rules.d/75-net-description.rules
 a8c9b0effabc3806f22c355a4a6e88be64c1912b  /lib/udev/rules.d/70-mouse.rules
 9c7447c094b1ecd0cd50d623d29bb5fd4b9e8d70  /lib/udev/rules.d/60-serial.rules
@@ -5939,6 +5940,7 @@ c3e805c53edb389d81371800c2dc4d87ee6f60e4  /lib/x86_64-linux-gnu/libbsd.so.0.8.2
 3cc7a0cd75290f8b3c54506422113780284e2e71  /lib/x86_64-linux-gnu/libnss_compat-2.23.so
 2eb135473e00079cf9547e9b553df49e4135476f  /lib/x86_64-linux-gnu/libblkid.so.1.1.0
 9b2bd09ea3f623ce8b7c6908fae2d76ea25197cd  /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+494f10c5ea2e8dbebc72234ab192ae14a12404c6  /lib/x86_64-linux-gnu/libpcsclite.so.1.0.0
 0fef35e6e1fb0ac50960026fcc6c401f29977264  /lib/x86_64-linux-gnu/libsysfs.so.2.0.1
 4fddfa18dccb2d859db2612aaaba1f2e4783240a  /lib/x86_64-linux-gnu/libdevmapper-event-lvm2.so.2.02
 835349355a19a2f69a1ae8d40834678cd018074e  /lib/x86_64-linux-gnu/libply.so.4.0.0
@@ -6200,7 +6202,7 @@ c9d769273790993b716f4266460a51997fd90af9  /lib/systemd/system/systemd-journald-a
 992675479d6a5d61a29f7a993522da3d73250ac8  /lib/systemd/system/systemd-sysctl.service
 587120aa6edc4d475dcc9c0dbfefd1404af441a0  /lib/systemd/system/exit.target
 be2b142b0a380548e921df7aea4e4027a40fc86a  /lib/systemd/system/systemd-journal-flush.service
-0a055a8280ce4b8a914c36b470e57bcaef729107  /lib/systemd/system/snapd.service
+727de0a282882a97fcbf8afe190e1f8a24b711e4  /lib/systemd/system/snapd.service
 92609b48f661bff834c377d03e8f7dda9f4d1552  /lib/systemd/system/systemd-timedated.service
 13ac467e6cb2354bfd076dfc1004de7636ef80c5  /lib/systemd/system/systemd-udevd.service
 b1d61ffd37b117657273a37df63d65d84305bd19  /lib/systemd/system/plymouth-read-write.service
@@ -6250,6 +6252,7 @@ bd8c207b7f0a2e3aa689efcadd6416fd11a8f3b0  /lib/systemd/system/rsyslog.service
 76807c47006f547425c7237a2e069b58816938fa  /lib/systemd/system/ureadahead-stop.service
 fced2a3e6541bf01d2bae5cdb1f00f3acaa16def  /lib/systemd/system/systemd-poweroff.service
 ab99878d8d7a7831665f9afda53c26a06d5d308a  /lib/systemd/system/systemd-tmpfiles-setup-dev.service
+4081d59b64d497e3d35036fa0120ac37e1a5994a  /lib/systemd/system/slim.service
 3d0a188eb6f71fc8f319e09f6a03646e41f9efe2  /lib/systemd/system/systemd-tmpfiles-clean.service
 242c832608bea699ec75c2802145f74c4f31323d  /lib/systemd/system/systemd-update-utmp-runlevel.service
 cc246586046d6d4fca8f381640c21b6fee79fe0c  /lib/systemd/system/network-online.target
@@ -6325,7 +6328,6 @@ cf4b0a75e273c3293e2dfb15befc006c21949cfb  /lib/systemd/system/rpcbind.target
 4d06e6780e9709ed13d22a46330815f292777f47  /lib/systemd/system/systemd-localed.service
 bf2fcd5498bf6b8f3de9b51f74516ac34d5af37a  /lib/systemd/system/systemd-hibernate-resume@.service
 8d433b94bb41d7ff2177680d88248d2050d9464c  /lib/systemd/system/systemd-resolved.service
-402e163a487cffa65f7f9ac4b48ad2f423989677  /lib/systemd/system/score.target
 e37dfc489051b0630cd3203d54d230de5fdcddf4  /lib/systemd/system/plymouth-halt.service
 b402884337376f97431c8be65e48331f619681c6  /lib/systemd/system/container-getty@.service
 56aafad980110d618a7648c1fc58a26284412d5f  /lib/systemd/system/local-fs.target
@@ -6334,7 +6336,6 @@ b402884337376f97431c8be65e48331f619681c6  /lib/systemd/system/container-getty@.s
 2bf595c9a6fe72b6526669746419b8cf20a02400  /lib/systemd/system/systemd-rfkill.service
 5f666c9257b9e28ae5ec3e7f0b346b80e8212e99  /lib/systemd/system/friendly-recovery.service
 a3660ed0d4a18e3afec87c2a6b873fa902e74b47  /lib/systemd/system/snapd.frameworks.target
-95a1370d1a22df59b1e70d92e18481b656c03c4d  /lib/systemd/system/qamf.target
 aef12158d795b142d21aadae626cbd06c130fe6f  /lib/systemd/systemd-activate
 2a1b7a8351362eee4dee4a75704bf03120d5f876  /lib/systemd/systemd-binfmt
 13a843298843bf4c3f47adfa8e5f1495cb152be5  /lib/systemd/systemd-timesyncd

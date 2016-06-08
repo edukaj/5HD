@@ -733,7 +733,6 @@ c60bf0dde39f85af19eb298e49b47a7b830234aa  /etc/popularity-contest.conf
 c3d0d488df2167f54c35def44cd85c268976869c  /etc/menu-methods/lang.h
 bfad514254974a455ecf89c2b55d84da6f04e4f5  /etc/menu-methods/menu.h
 a791ea3c88a8d94eee98a6f5f7a53082788503fe  /etc/rsyslog.conf
-c6f31bcb46ac47da413d49733c95105a61036a1e  /etc/.slim.conf.swp
 340e00144bd53d4227d9a90d5e37c8ac4370158a  /etc/nsswitch.conf
 8163bdb537ae25675b9e5be5c767d97a26a596fd  /etc/cron.d/.placeholder
 8bcc1c9779f17816d9fe72252733aec16116574c  /etc/cron.d/popularity-contest
