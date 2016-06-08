@@ -1,4 +1,0 @@
-#!/bin/bash
-
-echo " I am a fake lantime script" 
-exit 0

@@ -1,1 +1,0 @@
-VERBOSE=1 HOME_FOLDER=/home/ale/script_temp/home/ale OPT_QUBICAAMF_FOLDER=${HOME_FOLDER}/opt/qubicaamf DEFAULT_NETWORK_INTERFACE="enp1s0:1" FORCE_MXSERVER_IP="192.168.18.21" FORCE_CONQUEROR_IP=${FORCE_MXSERVER_IP} MATRIX_BIN_FOLDER="${HOME_FOLDER}/matrix/bin" FAKE_REBOOT=1 /home/ale/script_temp/home/ale/start_whole_system.sh
