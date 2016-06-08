@@ -137,7 +137,7 @@ Lo script di `start_whole_system.sh` si occupa sia di inizalizzare delle variabi
 
 Le variabili che vengono lanciate sono
 
-+ *script* inizlizza un po' di variabili di ambiente
++ **script** inizlizza un po' di variabili di ambiente
 + **script**: pulizia del disco
 + **script**: controllo dell'indirizzo ip della macchina (`get_last_valid_ip.sh` e `get_last_valid_ip.sh`) 
   + **script**: in caso di errore chimata *REST* ad `mms-viewer` e `stop` di tutto.
