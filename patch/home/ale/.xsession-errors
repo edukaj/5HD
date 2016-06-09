@@ -1,0 +1,14 @@
++ showParams
++ '[' 1 -eq 0 ']'
++ echo Home folder is /opt/qubicaamf
++ logger -t start_system
++ echo CONFIG_FOLDER is /opt/qubicaamf/config
++ logger -t start_system
++ echo DEFAULT_NETWORK_INTERFACE is enp1s0:1
++ logger -t start_system
++ echo OPT_QUBICAAMF_FOLDER is /opt/qubicaamf
++ logger -t start_system
++ log_time START
++ echo 'Current running time at stage START : 0 sec'
++ logger -t start_system
++ exit 0

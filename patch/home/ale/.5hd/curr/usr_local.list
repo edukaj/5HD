@@ -1,3 +1,4 @@
 d30b8c15cfa7979739e5dc289cb8ed739b920473  /usr/local/bin/createDiff
 ca75315475376eccc956582e9f45e0cb2a60fd27  /usr/local/bin/snapshot
-9839275f3699df63900cd9ebab12c19220212726  /usr/local/bin/monitor-hotplug.sh
+9839275f3699df63900cd9ebab12c19220212726  /usr/local/bin/monitor-hotplug
+588a4576a9dded64950a6a5b2040a9cbfb1e49f2  /usr/local/bin/splashscreen

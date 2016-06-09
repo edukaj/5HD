@@ -1,10 +1,10 @@
 #!/bin/bash
 
-HOME_FOLDER=${HOME_FOLDER:-"/home/ale"}
+HOME_FOLDER=${HOME_FOLDER:-"/opt/qubicaamf"}
 TEE="logger -t start_system "
 SCRIPTS_FOLDER="${HOME_FOLDER}/scripts"
-CONFIG_FOLDER="${HOME_FOLDER}/.config/5hd"
-OPT_QUBICAAMF_FOLDER=${OPT_QUBICAAMF_FOLDER:-"/opt/qubicaamf"}
+CONFIG_FOLDER="${HOME_FOLDER}/config"
+OPT_QUBICAAMF_FOLDER=${OPT_QUBICAAMF_FOLDER:-${HOME_FOLDER}}
 SERVICES_FOLDER="${OPT_QUBICAAMF_FOLDER}/services"
 LAST_UPDATE_FILE="$CONFIG_FOLDER/update"
 LAST_VALID_IP_FILE="$CONFIG_FOLDER/lastIp"
@@ -126,6 +126,7 @@ function initApp {
 detectVerbose
 showParams
 log_time "START"
+exit 0
 #enable next call if needed
 #logFolderCheck
 clean_disk_space

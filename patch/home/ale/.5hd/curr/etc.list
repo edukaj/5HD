@@ -500,8 +500,8 @@ b3e62b037e9629558e4f2487f90ed25210a0e4fa  /etc/ld.so.conf.d/snappy.conf
 d40eeab1a432b05f7c83f28ab0e954a25a7a895b  /etc/legal
 1006724e4b59024ac835c1d859f36b5551f3672c  /etc/X11/fonts/misc/xfonts-base.alias
 625af056078084401e6f548d3af0add135eac3a2  /etc/X11/xsm/system.xsm
-9430c36d68ca55567b5b5722de4dff04bbaece03  /etc/X11/xorg.conf.d/10-monitor.conf
-9d4dbd673a2b63e8539b3f382432759d8b2ddf69  /etc/X11/xorg.conf.d/11-device-edid.conf
+e64e18f9c62fbdceb4f04b6a5a0b700bd9b9f955  /etc/X11/xorg.conf.d/10-monitor.conf
+33dcadd0185256398b801e7074a3fda782d5bcb2  /etc/X11/xorg.conf.d/11-device-edid.conf
 2a3c7ba23dbc3195a203a4cd744c5ce492b0358c  /etc/X11/rgb.txt
 b16ee319f2ee650d1fdc4dcc28091b09217fea02  /etc/X11/xinit/xinitrc
 f825b6fa76fbb9e29447dcdb7064d967ed3354be  /etc/X11/xinit/xserverrc

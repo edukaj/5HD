@@ -1,0 +1,10 @@
+a6c680a083cbb2ff89e40d06ed96c182e128ef3b  /opt/qubicaamf/monitor/edid/edid_dx.bin
+a6c680a083cbb2ff89e40d06ed96c182e128ef3b  /opt/qubicaamf/monitor/edid/edid_sx.bin
+ac99f892f6d391d769afb59d0c8c767771246cfc  /opt/qubicaamf/monitor/transform/sx
+ac99f892f6d391d769afb59d0c8c767771246cfc  /opt/qubicaamf/monitor/transform/dx
+39449eff2022531ed3d5a7f117f85c11f1c579e5  /opt/qubicaamf/scripts/start_whole_system.sh
+9145e9192f94438ee86e058e5c7588e868afcfa3  /opt/qubicaamf/scripts/apt_proxy.sh
+7bdac2b21c142f6885a33ec141c85fd5b446e06c  /opt/qubicaamf/scripts/nReboot
+206af99cc1de267c01114de4734f003411ceab0b  /opt/qubicaamf/scripts/stop_whole_system.sh
+8b8fa92ac6e953691dc7a6a03c09998c5bf13b12  /opt/qubicaamf/scripts/http_proxy.sh
+bb7bf4e824496bbb5f97ca50c8e918a0ab705f60  /opt/qubicaamf/scripts/set-transform

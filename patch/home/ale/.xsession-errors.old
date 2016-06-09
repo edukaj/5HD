@@ -1,0 +1,13 @@
+E: awesome: a_xcb_io_cb:218: X server connection broke (error 1)
+mf
++ logger -t start_system
++ logger -t start_system
++ echo CONFIG_FOLDER is /opt/qubicaamf/config
++ echo DEFAULT_NETWORK_INTERFACE is enp1s0:1
++ logger -t start_system
++ logger -t start_system
++ echo OPT_QUBICAAMF_FOLDER is /opt/qubicaamf
++ log_time START
++ echo 'Current running time at stage START : 0 sec'
++ logger -t start_system
++ exit 0

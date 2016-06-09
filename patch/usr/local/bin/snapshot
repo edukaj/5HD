@@ -1,0 +1,14 @@
+#!/bin/bash
+
+ROOT=${1:-"/home/ale/.5hd/prev"}
+
+[ ! -d ${ROOT} ] && mkdir --parent ${ROOT}
+
+sudo find /etc -type f -exec sha1sum {} \; > ${ROOT}/etc.list &
+sudo find /opt -type f -exec sha1sum {} \; > ${ROOT}/opt.list &
+sudo find /lib -type f -exec sha1sum {} \; > ${ROOT}/lib.list &
+sudo find /usr/local -type f -exec sha1sum {} \; > ${ROOT}/usr_local.list &
+sudo find /home -type f -exec sha1sum {} \;> ${ROOT}/home.list &
+dpkg -l > ${ROOT}/packages.list
+
+wait
