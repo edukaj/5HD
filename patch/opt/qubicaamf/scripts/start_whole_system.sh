@@ -72,6 +72,7 @@ function initService {
 
 function restart {
   echo "Reboot needed !!!" | ${TEE}
+  splashscreen_close
   [ ${FAKE_REBOOT} -eq 0 ] && ./nReboot
   exit 0
 }
@@ -122,31 +123,34 @@ function initApp {
   fi
 }
 
+. ${SCRIPTS_FOLDER}/splashscreen_functions.sh
+splashscreen_show
 
 detectVerbose
 showParams
 log_time "START"
-exit 0
 #enable next call if needed
 #logFolderCheck
 clean_disk_space
 
-. ${SCRIPTS_FOLDER}/splashscreen_functions.sh
-. ${SCRIPTS_FOLDER}/get_last_valid_ip.sh
-. ${SCRIPTS_FOLDER}/get_local_ip.sh
 if [ $? -ne 0 ]; then
   splashscreen_show
   splashscreen_message "BOOT FAILURE" "red"
   stop
 fi
 
+. ${SCRIPTS_FOLDER}/get_last_valid_ip.sh
+. ${SCRIPTS_FOLDER}/get_local_ip.sh
+
 . ${SCRIPTS_FOLDER}/initialize_variables_from_ip.sh
 
 
 splashscreen_show
 
+[ ${IS_SCORE} -ne 0 ] && splashscreen_message "SCORE BOOTING" "cyan"
 [ ${IS_SCORE} -eq 0 ] && splashscreen_message "MMS BOOTING" "cyan"
 [ ${IS_STANDALONE} -eq 1 ] && splashscreen_message "STANDALONE BOOTING" "orange"
+
 
 . ${SCRIPTS_FOLDER}/get_mxserver_ip.sh
 . ${SCRIPTS_FOLDER}/get_conqserver_ip.sh
@@ -162,6 +166,7 @@ ${SCRIPTS_FOLDER}/configure_core_dump.sh
 [ $? -ne 0 ] && stop
 
 . ${SCRIPTS_FOLDER}/upload_programs_check.sh
+
 if [ $? -eq 1 ]; then
   . ${SCRIPTS_FOLDER}/upload_programs.sh
   [ $? -ne 0 ] && stop
@@ -172,6 +177,8 @@ if [ $? -eq 1 ]; then
 else
   . ${SCRIPTS_FOLDER}/verify_deb_list.sh
 fi
+
+exit 0
 
 . ${SCRIPTS_FOLDER}/upload_programs_manually.sh
 [ $? -ne 0 ] && stop

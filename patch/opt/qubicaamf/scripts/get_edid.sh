@@ -1,9 +1,10 @@
 #!/bin/bash
 
-EDID_FILE_NAME="4hd.${OCTECT}"
+EDID_FILE_NAME="5hd.${OCTECT}"
 EDID_FILE="/tmp/${EDID_FILE_NAME}"
-EDID_FOLDER="/etc/X11"
-SET_VIEWPORT_SCRIPT="/opt/qubicaamf/bin/set-viewport"
+EDID_FOLDER="${OPT_QUBICAAMF_FOLDER}/monitor/edid"
+SET_VIEWPORT_SCRIPT="${OPT_QUBICAAMF_FOLDER}/scripts/set-viewport"
+SET_TRANSFORM_SCRIPT="${OPT_QUBICAAMF_FOLDER}/scripts/set-transform"
 
 echo "get_edid - Checking for file ${EDID_FILE_NAME} on ConqServer" | ${TEE}
 [ -f ${EDID_FILE} ] && rm ${EDID_FILE}
@@ -47,4 +48,7 @@ do
   echo "get_edid - Using Size $sizeParam for side $i" | ${TEE}
   ${SET_VIEWPORT_SCRIPT} $i $sizeParam
 done
+
+${SET_TRANSFORM_SCRIPT}
+
 return ${reboot_needed}

@@ -47,6 +47,25 @@ I monitor vengono impostati tramite gli script di X nella cartella di `etc/X11/x
 In questo punto viene gestito anche il DPMS (Display Power Monitor Signal) in modo che i monitor non si spengano da soli.
 
 Inoltre viene gestito il plug and play come da [questo link](https://github.com/codingtony/udev-monitor-hotplug) con varianti
+
+## Viewport
+Per permettere lo zoom dello schermo la configurazione statica dei monito non e' sufficiente. *E' possibile* usare `xrandr` (x resize and rotate).
+
+X funziona con una `framebuffer` che normalmente e' grande come la somma dei due monitor. Ad esempio se ho due monitor da 1280x720 ho un 
+`framebuffer` di 2560x720 nel caso in cui siano affiancati.
+Con `xrandr` e' possibile modificare la *vista* di ciascun monitor rispetto alla `framebuffer`: ad esempio se devo zoomare diciamo di 50px il monitor sx
+e 60px quello dx. 
+
+  new_width_sx = 1280 + 50 = 1330
+  new_height_sx = 9/16 * 50 + 720 = ~748
+  
+  new_width_dx = 1280 + 60 = 1340
+  new_height_dx = 9/16 * 60 + 720 = ~754
+  
+  xrandr --output HDMI1 --scale-from 1330x748 --output HDMI2 --pos 1330x0 --scale-from 1340x754
+  
+E voila'! 
+  
  
 ## awesome
 Tutti i file di modifica di awesome si trovano dentro la cartella awesome di questo repo. Per farli funzionare basta 
@@ -100,6 +119,11 @@ in questo modo si ha un posto piu' intuititivo e poi il nome non dipende piu' da
 
 # Prove systemd 
 Facciamo qualche prova per vedere se usare systemd per lanciare tutto ha un senso.
+
+**Abbiamo caputo che non e' la strada giusta - in quanto i servizi non sono stati pensati per lavorare con la GUI**
+
+Ci sono vari metodi per fare in modo di lanciare `Xorg` come un servizio ma nessuna procedura "standard". 
+**Le sezioni seguenti devono essere ignorate**.
 
 ## Nomenclatura
 
@@ -177,3 +201,4 @@ Le variabili che vengono lanciate sono
     + **node_apps**
     + **uftp**
 + **script**: lancio lo score   
+

@@ -1,0 +1,89 @@
+#!/bin/bash
+
+WIDTH_SX=1280
+HEIGHT_SX=720
+LEFT_SX=0
+TOP_SX=0
+WIDTH_DX=1280
+HEIGHT_DX=720
+LEFT_DX=0
+TOP_DX=0
+
+VIEWPORT_CONFIG=/opt/qubicaamf/monitor/transform/
+
+check_params()
+{
+	[ $# -ne 2 ] && { echo "Wrong number of parameters" | ${TEE}; exit 1; }
+	[[ "${1^^}" != "SX" && "${1^^}" != "DX" ]] && { echo "Parameter $1 is not valid" | ${TEE}; exit 1; }
+	expr $2 + 1 &>/dev/null
+	[ $? -ne 0 ] && { echo "Second parameter is not a number" | ${TEE}; exit 1;}
+	[[ $2 -lt 0 || $2 -gt 200 ]] && { log "Second parameter must be in range 0 - 200";exit 1; }
+	SIDE=${1^^}
+	CONFIG_FILE=${VIEWPORT_CONFIG}/${SIDE}
+	HORIZ_OFFSET=$2
+	echo "[${SIDE}] Using horizontal_offset ${HORIZ_OFFSET}" | ${TEE}
+}
+
+create_default_viewport()
+{
+	echo "[${SIDE}] create default viewport config" | ${TEE}	
+	echo "1280 720" > ${CONFIG_FILE}
+}
+
+reset_mms()
+{
+	wget -q http://127.0.0.1:8769/recovery/sx -O /dev/null
+	wget -q http://127.0.0.1:8769/recovery/dx -O /dev/null
+	log "[${SIDE}] restarting mms..."
+}
+
+set_viewport()
+{
+	WIDTH=1280
+	HEIGHT=720
+	X_FACTOR=16
+	Y_FACTOR=9
+
+	NEW_WIDTH=$((${WIDTH} + ${HORIZ_OFFSET}))
+	NEW_HEIGHT=$((${NEW_WIDTH} * ${Y_FACTOR} / ${X_FACTOR}))
+	
+	echo "NEW_WIDTH is ${NEW_WIDTH}"
+	echo "NEW_HEIGHT is ${NEW_HEIGHT}"
+
+	if [ ! -f ${VIEWPORT_CONFIG}/${SIDE} ]; then
+		create_default_viewport
+	fi	
+	
+	echo "${NEW_WIDTH} ${NEW_HEIGHT}" > ${CONFIG_FILE}
+}
+
+lock()
+{
+	local ok=0
+	for ((counter=0;counter<5;counter++))
+	do
+		if ( set -o noclobber; echo "locked" > ${LOCK} ) 2>/dev/null
+		then
+			trap 'rm -f ${LOCK} ; echo "[${SIDE}] Ending | ${TEE}"' INT TERM EXIT
+			echo "[${SIDE}] lock..." | ${TEE}
+            ok=1
+            break
+		else
+			ra=$RANDOM
+            interval=$(x=$(expr $ra % 2);x=$(expr $x + 1); echo $x)
+            echo "[${SIDE}] Cannot lock file...sleeping for $interval secs" | ${TEE}
+            sleep $interval
+		fi
+	done        
+	[ $ok -eq 0 ] && echo "[${SIDE}] Unable to get lock!" | ${TEE} && exit 1
+}
+
+unlock()
+{
+	rm ${LOCK} && echo "[${SIDE}] ...unlock" | ${TEE}
+}
+
+check_params $@
+#lock
+set_viewport
+#unlock

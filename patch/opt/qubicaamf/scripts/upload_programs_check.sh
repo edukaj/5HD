@@ -6,7 +6,7 @@ if [ ${IS_STANDALONE} -eq 1 ]; then
 fi
 echo "Update - Checking for file ${UPDATE_FILE_NAME} on ConqServer" | ${TEE}
 [ -f ${NEXT_UPDATE_FILE} ] && rm ${NEXT_UPDATE_FILE}
-wget ${CONQSERVER_IP}:${UPDATE_SERVER_PORT}/${UPDATE_FILE_NAME} -P /tmp/
+curl -X GET -s ${CONQSERVER_IP}:${UPDATE_SERVER_PORT}/${UPDATE_FILE_NAME} -o /tmp/${UPDATE_FILE_NAME}
 if [ $? -ne 0 ]; then
   echo "Update not needed - Not found file ${UPDATE_FILE_NAME} on ${CONQSERVER_IP}:${UPDATE_SERVER_PORT}" | ${TEE}
   return 0
