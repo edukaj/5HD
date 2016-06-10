@@ -57,33 +57,5 @@ set_viewport()
 	echo "${NEW_WIDTH} ${NEW_HEIGHT}" > ${CONFIG_FILE}
 }
 
-lock()
-{
-	local ok=0
-	for ((counter=0;counter<5;counter++))
-	do
-		if ( set -o noclobber; echo "locked" > ${LOCK} ) 2>/dev/null
-		then
-			trap 'rm -f ${LOCK} ; echo "[${SIDE}] Ending | ${TEE}"' INT TERM EXIT
-			echo "[${SIDE}] lock..." | ${TEE}
-            ok=1
-            break
-		else
-			ra=$RANDOM
-            interval=$(x=$(expr $ra % 2);x=$(expr $x + 1); echo $x)
-            echo "[${SIDE}] Cannot lock file...sleeping for $interval secs" | ${TEE}
-            sleep $interval
-		fi
-	done        
-	[ $ok -eq 0 ] && echo "[${SIDE}] Unable to get lock!" | ${TEE} && exit 1
-}
-
-unlock()
-{
-	rm ${LOCK} && echo "[${SIDE}] ...unlock" | ${TEE}
-}
-
 check_params $@
-#lock
 set_viewport
-#unlock
