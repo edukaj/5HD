@@ -56,13 +56,14 @@ X funziona con una `framebuffer` che normalmente e' grande come la somma dei due
 Con `xrandr` e' possibile modificare la *vista* di ciascun monitor rispetto alla `framebuffer`: ad esempio se devo zoomare diciamo di 50px il monitor sx
 e 60px quello dx. 
 
-  new_width_sx = 1280 + 50 = 1330
-  new_height_sx = 9/16 * 50 + 720 = ~748
   
-  new_width_dx = 1280 + 60 = 1340
-  new_height_dx = 9/16 * 60 + 720 = ~754
+    new_width_sx = 1280 + 50 = 1330
+    new_height_sx = 9/16 * 50 + 720 = ~748
   
-  xrandr --output HDMI1 --scale-from 1330x748 --output HDMI2 --pos 1330x0 --scale-from 1340x754
+    new_width_dx = 1280 + 60 = 1340
+    new_height_dx = 9/16 * 60 + 720 = ~754
+  
+    xrandr --output HDMI1 --scale-from 1330x748 --output HDMI2 --pos 1330x0 --scale-from 1340x754
   
 E voila'! 
   
