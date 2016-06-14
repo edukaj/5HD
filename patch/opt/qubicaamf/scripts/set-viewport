@@ -35,11 +35,7 @@ check_params()
 create_default_viewport()
 {
 	log "[${SIDE}] create default viewport config"
-
-	(
-		echo "1,0,0,0,1,0,0,0,1"
-  	echo "1280 720"
-	) > ${CONFIG_FILE}
+  echo "1,0,0,0,1,0,0,0,1" > ${CONFIG_FILE}
 }
 
 reset_mms()
@@ -73,10 +69,7 @@ set_viewport()
 		create_default_viewport
 	fi
 
-	(
-		echo "${scaleFactor},0,${xOffset},0,${scaleFactor},${yOffset},0,0,1"
-  	echo "${NEW_WIDTH} ${NEW_HEIGHT}"
-	) > ${CONFIG_FILE}
+	echo "${scaleFactor},0,${xOffset},0,${scaleFactor},${yOffset},0,0,1" > ${CONFIG_FILE}
 }
 
 check_params $@

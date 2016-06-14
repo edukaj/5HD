@@ -1,13 +1,12 @@
 #!/bin/bash
 
 export DISPLAY=:0
+
 ROOT_PATH=${ROOT_PATH:-"/opt/qubicaamf/monitor/transform"}
 VERBOSE=${VERBOSE:-0}
 
-transform_sx=`head -1 ${ROOT_PATH}/SX`
-transform_dx=`head -1 ${ROOT_PATH}/DX`
-
-width_sx=`tail -1 ${ROOT_PATH}/SX | awk '{ print $1 }'`
+transform_sx=`cat ${ROOT_PATH}/SX`
+transform_dx=`cat ${ROOT_PATH}/DX`
 
 xrandr --output HDMI1 --transform "${transform_sx}" --output HDMI2 --pos 1280x0 --transform "${transform_dx}"
 echo "xrandr --output HDMI1 --transform ${transform_sx} --output HDMI2 ---pos 1280x0 --transform ${transform_dx}"
