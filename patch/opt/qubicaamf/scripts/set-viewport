@@ -9,7 +9,15 @@ HEIGHT_DX=720
 LEFT_DX=0
 TOP_DX=0
 
-VIEWPORT_CONFIG=/opt/qubicaamf/monitor/transform/
+VIEWPORT_CONFIG=/opt/qubicaamf/monitor/transform
+
+VERBOSE=${VERBOSE:-0}
+[ $VERBOSE -ne 0 ] && set -x
+
+log()
+{
+    logger -s -t "$(basename $0)" "$@"
+}
 
 check_params()
 {
@@ -21,13 +29,17 @@ check_params()
 	SIDE=${1^^}
 	CONFIG_FILE=${VIEWPORT_CONFIG}/${SIDE}
 	HORIZ_OFFSET=$2
-	echo "[${SIDE}] Using horizontal_offset ${HORIZ_OFFSET}" | ${TEE}
+	log "[${SIDE}] Using horizontal_offset ${HORIZ_OFFSET}"
 }
 
 create_default_viewport()
 {
-	echo "[${SIDE}] create default viewport config" | ${TEE}	
-	echo "1280 720" > ${CONFIG_FILE}
+	log "[${SIDE}] create default viewport config"
+
+	(
+		echo "1,0,0,0,1,0,0,0,1"
+  	echo "1280 720"
+	) > ${CONFIG_FILE}
 }
 
 reset_mms()
@@ -44,17 +56,27 @@ set_viewport()
 	X_FACTOR=16
 	Y_FACTOR=9
 
-	NEW_WIDTH=$((${WIDTH} + ${HORIZ_OFFSET}))
+	NEW_WIDTH=$((${WIDTH} + ${HORIZ_OFFSET} * 2))
 	NEW_HEIGHT=$((${NEW_WIDTH} * ${Y_FACTOR} / ${X_FACTOR}))
-	
-	echo "NEW_WIDTH is ${NEW_WIDTH}"
-	echo "NEW_HEIGHT is ${NEW_HEIGHT}"
 
-	if [ ! -f ${VIEWPORT_CONFIG}/${SIDE} ]; then
+	scaleFactor=`echo "scale=3; ${NEW_WIDTH} / 1280" | bc`
+
+	xOffset=`echo "-${HORIZ_OFFSET}" | bc`
+	yOffset=`echo "scale=3; ${xOffset} * 9 / 16" | bc`
+
+	log "NEW_WIDTH is ${NEW_WIDTH}"
+	log "NEW_HEIGHT is ${NEW_HEIGHT}"
+	log "xOffset is ${xOffset}"
+	log "yOffset is ${yOffset}"
+
+	if [ ! -f ${CONFIG_FILE} ]; then
 		create_default_viewport
-	fi	
-	
-	echo "${NEW_WIDTH} ${NEW_HEIGHT}" > ${CONFIG_FILE}
+	fi
+
+	(
+		echo "${scaleFactor},0,${xOffset},0,${scaleFactor},${yOffset},0,0,1"
+  	echo "${NEW_WIDTH} ${NEW_HEIGHT}"
+	) > ${CONFIG_FILE}
 }
 
 check_params $@

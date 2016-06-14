@@ -38,6 +38,7 @@ do
   fi
   rm -f $edidFile
 done
+
 for i in sx dx
 do
   sizeParam=$(x=$(cat ${EDID_FILE} | grep size.$i); [ $? -eq 0 ] && echo ${x##*=} | tr -d '\r' )

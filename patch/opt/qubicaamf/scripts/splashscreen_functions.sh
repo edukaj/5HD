@@ -20,13 +20,13 @@ function splashscreen_message {
   SPLASH_MESSAGE=$1
   SPLASH_MESSAGE_COLOR=$2
     
-  curl --data "show=false&message=${SPLASHSCREEN_SN}: ${SPLASH_MESSAGE}&color=${SPLASH_MESSAGE_COLOR}" ${SPLASHSCREEN_IP}:6543/splashscreen
+  curl --data "show=true&message=${SPLASHSCREEN_SN}: ${SPLASH_MESSAGE}&color=${SPLASH_MESSAGE_COLOR}" ${SPLASHSCREEN_IP}:6543/splashscreen
   echo "$SPLASHSCREEN_IP-$SPLASHSCREEN_SN:$SPLASH_MESSAGE" | ${TEE}
 }
 
 function splashscreen_hide {
   echo "Hiding splashscreen" | ${TEE}
-  curl --data "show=false" ${SPLASHSCREEN_IP}:6543/splashscreen
+  curl --data "show=true&message=${SPLASHSCREEN_SN}:OK BOOT REQUIRED&color=cyan" ${SPLASHSCREEN_IP}:6543/splashscreen
 }
 
 function splashscreen_close {

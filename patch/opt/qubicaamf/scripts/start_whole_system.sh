@@ -73,7 +73,7 @@ function initService {
 function restart {
   echo "Reboot needed !!!" | ${TEE}
   splashscreen_close
-  [ ${FAKE_REBOOT} -eq 0 ] && ./nReboot
+  [ ${FAKE_REBOOT} -eq 0 ] && ${SCRIPTS_FOLDER}/nReboot
   exit 0
 }
 
@@ -178,8 +178,6 @@ else
   . ${SCRIPTS_FOLDER}/verify_deb_list.sh
 fi
 
-exit 0
-
 . ${SCRIPTS_FOLDER}/upload_programs_manually.sh
 [ $? -ne 0 ] && stop
 
@@ -193,12 +191,11 @@ exit 0
 . ${SCRIPTS_FOLDER}/get_edid.sh
 [ $? -ne 0 ] && restart
 
-
 initServices
 
 initApp
 
-splashscreen_hide
+splashscreen_close
 
 log_time "FINISH"
 

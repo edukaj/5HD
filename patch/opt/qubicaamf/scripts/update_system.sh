@@ -111,6 +111,14 @@ buildPackageCollection()
 	echo all are ${remoteDebListNameArray[*]}
 }
 
+isPacketInstalled()
+{
+	local packet_name=$1
+	
+	exist=`dpkg -l ${packet_name} &>/dev/null`
+	return $?
+}
+
 filterOnReallyRequiredPackages()
 {
 	myIndex=0
@@ -122,11 +130,18 @@ filterOnReallyRequiredPackages()
 		local packageName=${remoteDebListPackageArray[$i]}
 
 		logger -s -t ${LOGGER_TAG} "Checking for local package ${packageName}"
-
-		local package_info="$(dpkg -s ${packageName})"
-		local versione=$(echo "${package_info}" | grep "Version: " | awk '{ print $2  }')
-		local package_status=$(echo "${package_info}" | grep "Status: " | awk ' BEGIN{FS=": "} {print $2} ')
-
+		
+		local package_info=""
+		local versione=""
+		local package_status=""
+				
+		if isPacketInstalled ${packageName}
+		then
+			package_info="$(dpkg -s ${packageName})"
+			versione=$(echo "${package_info}" | grep "Version: " | awk '{ print $2  }')
+			package_status=$(echo "${package_info}" | grep "Status: " | awk ' BEGIN{FS=": "} {print $2} ')
+		fi
+		
 		needInstall=1
 		if [ -z "$versione" ]
 		then

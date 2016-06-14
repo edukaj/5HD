@@ -6,13 +6,13 @@ installare pacchetti per arrivare ad avere della grafica pittosto che partire da
 
 Partendo dalla versione Desktop e togliendo i pacchetti purtroppo non siamo mai riuscito ad avere un sistema che fosse capace di bootare.
 
-Il file 5HDInstalledPackets rappresenta una lista di tutti i pacchetti che sono stati installati o rimosso dopo l'installazione 
+Il file 5HDInstalledPackets rappresenta una lista di tutti i pacchetti che sono stati installati o rimosso dopo l'installazione
 di ubuntu server.
 
 ## Nomenclatura della rete
 In [questo link](http://askubuntu.com/questions/689070/network-interface-name-changes-after-update-to-15-10-udev-changes) c'&eacute;
 una spiegazione sul perch&eacute; del cambio di nomenclatura della rete: eth0 &eacute; stato deprecato in favore
-di un metodo nuovo che potrebbe risolvere i nostri problemi. 
+di un metodo nuovo che potrebbe risolvere i nostri problemi.
 
 ## Patch
 La cartella patch contiene le modifiche fatte alla versione ubuntu standard
@@ -26,7 +26,7 @@ In particolare perl si lamenta della mancata definizione di LC_ALL. La soluzione
 ## Lightdm
 Vedere cartella `etc/lightdm` per le modifiche fatte
 
-Lightdm &eacute; un display manager che si occupa di lanciare X server, user sessione e greeter per il login. 
+Lightdm &eacute; un display manager che si occupa di lanciare X server, user sessione e greeter per il login.
 Abbiamo modificato la configurazione in modo da fare l'autologin con utente ale.
 
 Leggere attentamente il [seguente link](https://wiki.archlinux.org/index.php/LightDM) che spiega in dettaglio come usare lightdm
@@ -51,25 +51,88 @@ Inoltre viene gestito il plug and play come da [questo link](https://github.com/
 ## Viewport
 Per permettere lo zoom dello schermo la configurazione statica dei monito non e' sufficiente. *E' possibile* usare `xrandr` (x resize and rotate).
 
-X funziona con una `framebuffer` che normalmente e' grande come la somma dei due monitor. Ad esempio se ho due monitor da 1280x720 ho un 
+X funziona con una `framebuffer` che normalmente e' grande come la somma dei due monitor. Ad esempio se ho due monitor da 1280x720 ho un
 `framebuffer` di 2560x720 nel caso in cui siano affiancati.
 Con `xrandr` e' possibile modificare la *vista* di ciascun monitor rispetto alla `framebuffer`: ad esempio se devo zoomare diciamo di 50px il monitor sx
-e 60px quello dx. 
+e 60px quello dx.
 
-  
-    new_width_sx = 1280 + 50 = 1330
-    new_height_sx = 9/16 * 50 + 720 = ~748
-  
-    new_width_dx = 1280 + 60 = 1340
-    new_height_dx = 9/16 * 60 + 720 = ~754
-  
-    xrandr --output HDMI1 --scale-from 1330x748 --output HDMI2 --pos 1330x0 --scale-from 1340x754
-  
-E voila'! 
-  
- 
+Bisogna applicare una trasformazione per ogni monitor sia in scale che in traslazione.
+Con lo scale in si rimpicciolisce l'immagine poi con la traslazione la si centra nuovamente.
+
+`xrandr` funziona applicando una matrice di trasformazione omogenea 3x3 del seguente tipo:
+
+La seguente matrice applica contemporaneamente una traslazione e un rescale
+
+
+    sx  0 tx
+     0 sy ty
+     0  0  1
+
+    `sx`: fattore di scale sull'asse x
+    `sy`: fattore di scale sull'asse y
+    `tx`: traslazione sull'asse x
+    `ty`: traslazione sull'asse y
+
+
+Il fattore di scale si ottiene calcolando il rapporto fra la nuova dimensione
+e la risoluzione dello schermo.
+
+
+    new_width_sx = 1280 + (2*50) = 1330
+    new_height_sx = 9/16 * (2*50) + 720 = ~748
+
+    new_width_dx = 1280 + (2*60) = 1340
+    new_height_dx = 9/16 * (2*60) + 720 = ~754
+
+    scaleFactorSx = new_width_sx / 1280
+    scaleFactorDx = new_width_dx / 1280
+
+    offsetX_SX = -50
+    offsetY_SX = offsetX_SX * 9 / 16
+
+    offsetX_DX = -60
+    offsetY_DX = offsetX_DX * 9 / 16
+
+La matrice di trasformazione diventa quindi per la sinistra:
+
+    scaleFactorSx             0 offsetX_SX
+                0 scaleFactorSx offsetY_SX
+                0             0          1
+
+Per la parte destra:
+
+    scaleFactorDx             0 offsetX_DX
+                0 scaleFactorDx offsetY_DX
+                0             0          1
+
+Usando `xrandr` in un colpo solo il tutto divente
+
+    xrandr --output HDMI1 --transform scaleFactorSx,0,offsetX_SX,0,scaleFactorSx,offsetY_SX,0,0,1 --output HDMI2 --pos 1280x720 --transform scaleFactorDX,0,offsetX_DX,0,scaleFactorDX,offsetY_DX,0,0,1
+
+
+E voila'!
+
+### Problemi
+
+#### awesome
+awesome ha un modo particolare (che non comprendiamo) di riposizionare l'immagine di background del desktop quindi
+tutti i test con un'immagine di sfondo non hanno senso.
+
+#### mplayer
+Se si applica `xrandr` con mplayer che gira tutto avviene in modo perfetto. Se pero' mplayer viene lanciato dopo
+la trasformazione xrandr, mplayer si posiziona in modo sbagliato.
+
+Un tool tipo `wmctrl` si possono modificare le geometrie di una finestra.
+
+
+Per ottenere gli id delle finestra aperte:
+
+    wmctrl -lG
+    wmctrl -i -r id -e 0,x,y,width,height
+
+
 ## awesome
-Tutti i file di modifica di awesome si trovano dentro la cartella awesome di questo repo. Per farli funzionare basta 
+Tutti i file di modifica di awesome si trovano dentro la cartella awesome di questo repo. Per farli funzionare basta
 metterli dentro la cartella .config della 5hd
 
 awesome viene avviato da lightdm, che a sua volta &eacute; lanciato all'avvio con auto login ale
@@ -102,7 +165,7 @@ In fondo imposto come sink di default il canale sinistro
 ## ALSAMIXER
 Il file `/var/lib/alsa/asound.state` e' stato modificato per avere di default abilitate le uscite S/PDIF (digitali)
 altrimenti non si sente niente sui monitor, perche' di default aprte analogico.
-Per farlo, si usa **alsamixer**, si settano i valori corretti, e poi si fa 
+Per farlo, si usa **alsamixer**, si settano i valori corretti, e poi si fa
 sudo alsactl store che serve per salvare il default.
 
 Ma: se si cambia il valore con alsamixer e si reboota, all avvio alsa se ne frega del valore che avevi salvato nel file,
@@ -118,20 +181,20 @@ Pare andare la semplice modifica per cui viene lnaciato X con --nocursor
 Ho pensato di muoverlo in `/opt/qubicaamf/HD_VERSION`
 in questo modo si ha un posto piu' intuititivo e poi il nome non dipende piu' dalla versione dell'hw.
 
-# Prove systemd 
+# Prove systemd
 Facciamo qualche prova per vedere se usare systemd per lanciare tutto ha un senso.
 
 **Abbiamo caputo che non e' la strada giusta - in quanto i servizi non sono stati pensati per lavorare con la GUI**
 
-Ci sono vari metodi per fare in modo di lanciare `Xorg` come un servizio ma nessuna procedura "standard". 
+Ci sono vari metodi per fare in modo di lanciare `Xorg` come un servizio ma nessuna procedura "standard".
 **Le sezioni seguenti devono essere ignorate**.
 
 ## Nomenclatura
 
-+ **unit**: una unit e' una singola attivita' o componente. Ogni unita' e' composta da un singolo file 
++ **unit**: una unit e' una singola attivita' o componente. Ogni unita' e' composta da un singolo file
 di testo che la descrive, esprime di cosa ha bisogno prima e dopo e altri dettagli
 + **service**: questo tipo di unit e' il piu' comune e consente a systemd di inizarlo e di monitorarlo.
-+ **target**: sono usati per unire e collegare altri unit assiemte in modo da descrivere un determinato stato per il 
++ **target**: sono usati per unire e collegare altri unit assiemte in modo da descrivere un determinato stato per il
 sistema.
 
 I servizi possono essere sia demoni che script one shot e tanto altro ....; nel nostro caso la `start_whole_system` la trasformiano
@@ -155,7 +218,7 @@ Il tutto si crea cosi':
 questo crea un link in `/etc/systemd/system` al servizio
 
 in `/lib/systemd/system` ci deve essere un target; li' dentro ci si mette il `.service`
-poi facendo systemctl enable `nome.service` dovrebbe create la cartella in `/etc/systemd/system` contenebet i servizi da lanciare 
+poi facendo systemctl enable `nome.service` dovrebbe create la cartella in `/etc/systemd/system` contenebet i servizi da lanciare
 
 ## Servizi che esistono nella 5HD
 Lo script di `start_whole_system.sh` si occupa sia di inizalizzare delle variabili che di *lanciare* dei demoni.
@@ -164,7 +227,7 @@ Le variabili che vengono lanciate sono
 
 + **script** inizlizza un po' di variabili di ambiente
 + **script**: pulizia del disco
-+ **script**: controllo dell'indirizzo ip della macchina (`get_last_valid_ip.sh` e `get_last_valid_ip.sh`) 
++ **script**: controllo dell'indirizzo ip della macchina (`get_last_valid_ip.sh` e `get_last_valid_ip.sh`)
   + **script**: in caso di errore chimata *REST* ad `mms-viewer` e `stop` di tutto.
 + **daemon**: net-reset: sembra che chiami nRbeoot quando riceve un determinato pacchetto dalla rete
 + **daemon**: *autoreset: esegue l'autoreset se l'indirizzo ip non e' valido????*
@@ -181,7 +244,7 @@ Le variabili che vengono lanciate sono
 + **script**: controlla se bisogna scaricare dei programmi
   + se si chiamo (`upload_programs.sh`)
     + **chiamo** `update_system.sh` **CASINO!!!**
- + se no chiamo (`verify_deb_list.sh`) 
+ + se no chiamo (`verify_deb_list.sh`)
 + **script**: controllo per eventuale aggiornamento manuale (`upload_programs_manually.sh`)
 + **script**: inizializza l'HUB (`init_hub.sh`)
 + **script**: imposta questo indirizzo come valido: (`set_last_valid_ip.sh`)
@@ -202,4 +265,3 @@ Le variabili che vengono lanciate sono
     + **node_apps**
     + **uftp**
 + **script**: lancio lo score   
-

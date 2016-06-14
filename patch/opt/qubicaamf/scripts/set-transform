@@ -4,12 +4,10 @@ export DISPLAY=:0
 ROOT_PATH=${ROOT_PATH:-"/opt/qubicaamf/monitor/transform"}
 VERBOSE=${VERBOSE:-0}
 
-width_sx=`cat ${ROOT_PATH}/SX | awk '{ print $1 }'`
-height_sx=`cat ${ROOT_PATH}/SX | awk '{ print $2 }'`
+transform_sx=`head -1 ${ROOT_PATH}/SX`
+transform_dx=`head -1 ${ROOT_PATH}/DX`
 
-width_dx=`cat ${ROOT_PATH}/DX | awk '{ print $1 }'`
-height_dx=`cat ${ROOT_PATH}/DX | awk '{ print $2 }'`
+width_sx=`tail -1 ${ROOT_PATH}/SX | awk '{ print $1 }'`
 
-xrandr --output HDMI1 --scale-from ${width_sx}x${height_sx} --output HDMI2 --pos ${width_sx}x0 --scale-from ${width_dx}x${height_dx} 
-echo "xrandr --output HDMI1 --scale-from ${width_sx}x${height_sx} --output HDMI2 --pos ${width_sx}x0 --scale-from ${width_dx}x${height_dx}"
-echo xrandr -q
+xrandr --output HDMI1 --transform "${transform_sx}" --output HDMI2 --pos 1280x0 --transform "${transform_dx}"
+echo "xrandr --output HDMI1 --transform ${transform_sx} --output HDMI2 ---pos 1280x0 --transform ${transform_dx}"
