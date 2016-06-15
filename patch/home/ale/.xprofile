@@ -1,6 +1,5 @@
 #!/bin/bash
 
 export DISPLAY=:0 
-VERBOSE=1 /opt/qubicaamf/scripts/set-transform
-~/fake_start.sh
+~/fake_start.sh &
 

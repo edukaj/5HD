@@ -1,0 +1,149 @@
+<html>  
+	<head>
+			<title></title>
+			<style>
+
+				body { 
+					background-image: url(splashscreen.png); 
+					color: white;
+					font-family: arial; 
+					font-size: 48px; 
+					margin: 0px; 
+					padding: 0px;
+					text-shadow: rgba(0, 0, 0, 1.0) 2px 2px 4px;
+				}
+				
+				message {
+					display: block; 
+					position: absolute;
+					top: 0;
+					width: 100%; 
+					text-align: center; 
+					padding-top: 60px;
+					text-align: center;				
+					font-family: arial;
+					font-size: 60px;
+					color: cyan; 
+					font-weight: bold;
+					text-shadow: rgba(0, 0, 0, 1.0) 2px 2px 4px;
+				}
+
+				syslog {
+					display: block;
+					position: absolute;
+					bottom: 0;
+					width: 1190px;
+					padding-left: 40px;
+					padding-bottom: 32px;
+					font-family: monospace;
+					font-size: 15px;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					color: white;
+				}
+
+				div {
+					padding: 5px;
+					color: #cccccc;
+				}
+				
+				info {
+					display: inline;
+					color: white;
+				}
+
+				sx {
+					display: block;
+					position: absolute;
+					top: 270;
+					left: 90;
+					width: 280;
+					text-align: center; 
+					vertical-align: center;
+					font-size: 25px;
+				}
+
+				dx {
+					display: block;
+					position: absolute;
+					top: 275;
+					left: 910;
+					width: 280;
+					text-align: center; 
+					vertical-align: center;
+					font-size: 25px;
+				}
+
+				monitor {
+					display: inline;
+					font-size: 50px;
+				}
+
+				sn {
+					display: inline;
+				}
+
+				ip {
+					display: inline;
+				}
+
+			</style>
+	</head>
+	<body>    
+		<message>SYSTEM BOOTING</message>
+		<syslog></syslog>
+		<sx>
+			<div>
+				MONITOR<br /><info><monitor></monitor></info>
+			</div>
+		</sx>
+		<dx>
+			<div>
+				S/N: <info><sn></sn></info>
+			</div>
+			<div>
+				IP: <info><ip></ip></info>
+			</div>
+		</dx>
+		<script>    
+			var gui = require('nw.gui');
+
+			var getParam = function(name, defaultValue) {
+				defaultValue = defaultValue || "";
+				name = name.toLowerCase().replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+				var regexS = "[\\?&]" + name + "=([^&#]*)";
+				var regex = new RegExp(regexS);
+				var results = regex.exec(window.location.href);				
+				if (results == null) return defaultValue;				
+				return results[1] != "" ? results[1] : defaultValue;
+			};
+
+			var write = function(tag, html, color) {
+				var elem = document.querySelector(tag);
+				if (!elem) return;
+				if (html) elem.innerHTML = html;
+				if (color) elem.style.color = color;
+			}
+
+			function startPageUpdater() {
+				var UPDATE_INTERVAL = 1000;
+				setInterval( function() {
+					write('message', global.data.message, global.data.color);
+					write('syslog', global.data.syslog);
+				}, UPDATE_INTERVAL);
+			}
+
+			var UNKNOWN = 'unknow';	
+			var monitor = getParam('monitor', '?')
+			var sn = gui.App.argv.length > 0 ? gui.App.argv[0] : UNKNOWN;
+			var ip = gui.App.argv.length > 1 ? gui.App.argv[1] : UNKNOWN;
+			
+			write('monitor', '#' + monitor);
+			write('sn', sn);
+			write('ip', ip);
+
+			startPageUpdater();			
+		</script>
+	</body>
+</html>

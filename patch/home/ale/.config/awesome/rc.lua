@@ -60,7 +60,7 @@ end
 
 -- {{{ Rules to apply to client windows
 awful.rules.rules = {
-    { rule = { name = "sx" }, properties = { screen = 1 } },
-    { rule = { name = "dx" }, properties = { screen = 2 } }
+    { rule = { name = "sx" }, properties = { x = 0, y = 0 } },
+    { rule = { name = "dx" }, properties = { x = 1280, y = 0 } },
 }
 -- }}}

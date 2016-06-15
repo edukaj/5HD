@@ -21,7 +21,7 @@ function detectVerbose {
 }
 
 function showParams {
-	[ $VERBOSE -eq 0 ] && return 0	
+	[ $VERBOSE -eq 0 ] && return 0
 	echo Home folder is ${HOME_FOLDER} | ${TEE}
   echo CONFIG_FOLDER is ${CONFIG_FOLDER} | ${TEE}
   echo DEFAULT_NETWORK_INTERFACE is ${DEFAULT_NETWORK_INTERFACE} | ${TEE}
@@ -123,6 +123,10 @@ function initApp {
   fi
 }
 
+. ${SCRIPTS_FOLDER}/get_last_valid_ip.sh
+. ${SCRIPTS_FOLDER}/get_local_ip.sh
+. ${SCRIPTS_FOLDER}/initialize_variables_from_ip.sh
+
 . ${SCRIPTS_FOLDER}/splashscreen_functions.sh
 splashscreen_show
 
@@ -139,10 +143,6 @@ if [ $? -ne 0 ]; then
   stop
 fi
 
-. ${SCRIPTS_FOLDER}/get_last_valid_ip.sh
-. ${SCRIPTS_FOLDER}/get_local_ip.sh
-
-. ${SCRIPTS_FOLDER}/initialize_variables_from_ip.sh
 
 
 splashscreen_show
@@ -180,7 +180,6 @@ fi
 
 . ${SCRIPTS_FOLDER}/upload_programs_manually.sh
 [ $? -ne 0 ] && stop
-
 
 . ${SCRIPTS_FOLDER}/init_hub.sh
 . ${SCRIPTS_FOLDER}/set_last_valid_ip.sh

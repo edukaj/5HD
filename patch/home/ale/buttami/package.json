@@ -1,0 +1,14 @@
+{
+  "name": "splashscreen",
+  "main": "index.html",  
+  "chromium-args" : "--data-path='/tmp/nw_splashscreen/'",
+  "window": {
+    "title": "nw splashscreen",
+    "frame": false,
+    "width": 0,
+    "height": 0,
+    "x": 0,
+    "y": 0,
+    "show": false
+  }
+}
