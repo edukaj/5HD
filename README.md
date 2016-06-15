@@ -112,12 +112,13 @@ Usando `xrandr` in un colpo solo il tutto divente
 
 E voila'!
 
+### awesome
+Per fare in modo che il tutto funzioni in modo fluido con awesome ho dovuto
+cambiare le regole per lo spostamento delle finestre in base al titolo:
+anziche' fare affidamento sullo "screen" uso delle coordinate assolute (vedi
+sezione awesome).
+
 ### Problemi
-
-#### awesome
-awesome ha un modo particolare (che non comprendiamo) di riposizionare l'immagine di background del desktop quindi
-tutti i test con un'immagine di sfondo non hanno senso.
-
 #### mplayer
 Se si applica `xrandr` con mplayer che gira tutto avviene in modo perfetto. Se pero' mplayer viene lanciato dopo
 la trasformazione xrandr, mplayer si posiziona in modo sbagliato.
